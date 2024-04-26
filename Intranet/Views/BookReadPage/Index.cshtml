@@ -1,0 +1,35 @@
+@model IEnumerable<Database.DATA.Library.ReadOnlineBook>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista książęk w pdf</h1>
+
+<p>
+    <a asp-action="Create">Dodaj strone z książka w pdf</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReadOnlineId"><i class="bi bi-pencil-square"></i></a> 
+                <a asp-action="Details" asp-route-id="@item.ReadOnlineId"><i class="bi bi-info-square"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.ReadOnlineId"><i class="bi bi-x-square"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

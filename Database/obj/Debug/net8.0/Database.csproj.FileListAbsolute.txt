@@ -1,0 +1,14 @@
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/bin/Debug/net8.0/Database.deps.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/bin/Debug/net8.0/Database.runtimeconfig.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/bin/Debug/net8.0/Database.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/bin/Debug/net8.0/Database.pdb
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.csproj.AssemblyReference.cache
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.GeneratedMSBuildEditorConfig.editorconfig
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.AssemblyInfoInputs.cache
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.AssemblyInfo.cs
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.csproj.CoreCompileInputs.cache
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/refint/Database.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.pdb
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.genruntimeconfig.cache
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/ref/Database.dll

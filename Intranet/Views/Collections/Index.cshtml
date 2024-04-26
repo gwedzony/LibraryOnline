@@ -1,0 +1,32 @@
+@model IEnumerable<Database.DATA.CMS.Collections>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista kolekcji</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowa kolekcję</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CollectionName)</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+         <td>
+                        @Html.DisplayFor(modelItem => item.CollectionName)
+                    </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.CollectionId"><i class="bi bi-pencil-square"></i></a> 
+            <a asp-action="Details" asp-route-id="@item.CollectionId"><i class="bi bi-info-square"></i></a>
+            <a asp-action="Delete" asp-route-id="@item.CollectionId"><i class="bi bi-x-square"></i></a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

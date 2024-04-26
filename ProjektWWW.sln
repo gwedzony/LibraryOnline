@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intranet", "Intranet\Intranet.csproj", "{84D55796-0776-4F80-8B8B-92152420C7E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore", "Bookstore\Bookstore.csproj", "{F829A268-4DB3-4564-A711-622FC9C7ECA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{CAC623B7-EE04-4C08-9E64-2162B516D182}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84D55796-0776-4F80-8B8B-92152420C7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D55796-0776-4F80-8B8B-92152420C7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D55796-0776-4F80-8B8B-92152420C7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D55796-0776-4F80-8B8B-92152420C7E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F829A268-4DB3-4564-A711-622FC9C7ECA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F829A268-4DB3-4564-A711-622FC9C7ECA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F829A268-4DB3-4564-A711-622FC9C7ECA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F829A268-4DB3-4564-A711-622FC9C7ECA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC623B7-EE04-4C08-9E64-2162B516D182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC623B7-EE04-4C08-9E64-2162B516D182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC623B7-EE04-4C08-9E64-2162B516D182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC623B7-EE04-4C08-9E64-2162B516D182}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,59 @@
+@model IEnumerable<Database.DATA.CMS.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista książek</h1>
+
+<p>
+    <a asp-action="Create">Dodaj książke</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookType.BookTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookId"><i class="bi bi-pencil-square"></i></a> 
+                <a asp-action="Details" asp-route-id="@item.BookId"><i class="bi bi-info-square"></i></a> 
+                <a asp-action="Delete" asp-route-id="@item.BookId"><i class="bi bi-x-square"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Database\Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\TableOfContent\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\TableOfContent\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\TableOfContent\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\TableOfContent\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\TableOfContent\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChapterNames\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChapterNames\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChapterNames\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChapterNames\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChapterNames\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Toc\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Toc\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Toc\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Toc\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Toc\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookPage\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookPage\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookPage\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookPage\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookPage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ListenAudioBookPage\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ListenAudioBookPage\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ListenAudioBookPage\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ListenAudioBookPage\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ListenAudioBookPage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\BookPage\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\BookPage\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\BookPage\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\BookPage\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\BookPage\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\img\library.png" />
+    </ItemGroup>
+
+</Project>

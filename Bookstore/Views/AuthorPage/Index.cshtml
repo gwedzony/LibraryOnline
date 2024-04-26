@@ -1,0 +1,23 @@
+
+@{
+    ViewData["Title"] = "AuthorPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row m-5 d-flex">
+    <div class="col-6">
+        <h2 class="ms-3">O autorze</h2>
+        <hr class="w-75 ms-3"/>
+        <div class="d-flex justify-content-start flex-row ms-3">
+            <img class="w-15 rounded" src="https://gamepedia.cursecdn.com/sorceleur_gamepedia/b/b8/Sapkowski.jpg" alt="zdjecie_autora"/>
+            <div class="ms-5">
+                <h2>Imie nazwisko autora</h2>
+                <p>Krotki opis o autorze</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        @await Html.PartialAsync("AuthorPageShared/AllAuthorBooks")
+    </div>
+</div>
