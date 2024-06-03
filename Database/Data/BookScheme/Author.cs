@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Database.DATA.BookScheme;
 using Database.DATA.CMS;
 
 namespace Database.Data.BookScheme;

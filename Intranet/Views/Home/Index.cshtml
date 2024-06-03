@@ -13,51 +13,9 @@
             <div class="d-flex justify-content-evenly">
                 <a asp-controller="BookPage" asp-action="Create" class="btn btn-primary">Dodaj stronę książki</a>
                 <a asp-controller="BookPreview" asp-action="Create" class="btn btn-primary">Dodaj stronę podgladu</a>
-                <a asp-controller="AudioBookPage" asp-action="Create" class="btn btn-primary">Dodaj audiobook</a>
-                <a asp-controller="BookReadPage" asp-action="Create" class="btn btn-primary">Dodaj książke pdf</a>
+                <a asp-controller="HomeBook" asp-action="Index" class="btn btn-primary">Zarządzanie książkami</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card border-0">
-            <img src="img/library.png" class="card-img-top w-25 mx-auto" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Książki</h5>
-                <p class="card-text">Klikając przycisk poniżej, administrator zostanie przeniesiony do strony, gdzie będzie mógł dodać nowe książki do biblioteki. Dzięki temu możemy poszerzyć naszą kolekcję o nowe tytuły.</p>
-
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Collections" asp-action="Index">Lista kolekcji</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " asp-area="" asp-controller="Genre" asp-action="Index">Lista gatunków</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="BookType" asp-action="Index">Lista rodzajów</a>
-                    </li>
-                </ul>
-                <div class="d-flex justify-content-end">
-                    <a asp-controller="Book" asp-action="Create" class="btn btn-primary">Dodaj książki</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card border-0">
-            <img src="img/editor.png" class="card-img-top w-25 mx-auto" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Autorzy</h5>
-                <p class="card-text">Klikając przycisk poniżej, administrator zostanie przekierowany do strony umożliwiającej dodawanie nowych autorów do biblioteki. Ta funkcja pozwala na rozszerzenie naszej kolekcji o twórców o różnorodnych talentach literackich.</p>
-
-                <div class="d-flex justify-content-end mt-5">
-                    <a asp-controller="Author" asp-action="Create" class="btn btn-primary ">Dodaj autora</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>

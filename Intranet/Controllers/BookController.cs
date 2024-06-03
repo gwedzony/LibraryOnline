@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Database.Context;
+using Database.DATA.BookScheme;
 using Database.DATA.CMS;
 
 namespace Intranet.Controllers

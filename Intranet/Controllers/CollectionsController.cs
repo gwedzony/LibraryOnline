@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Database.Context;
+using Database.DATA.BookScheme;
 using Database.DATA.CMS;
 
 namespace Intranet.Controllers
@@ -22,7 +23,7 @@ namespace Intranet.Controllers
         // GET: Collections
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Colections.ToListAsync());
+            return View(await _context.Collections.ToListAsync());
         }
 
         // GET: Collections/Details/5
@@ -33,7 +34,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var collections = await _context.Colections
+            var collections = await _context.Collections
                 .FirstOrDefaultAsync(m => m.CollectionId == id);
             if (collections == null)
             {
@@ -73,7 +74,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var collections = await _context.Colections.FindAsync(id);
+            var collections = await _context.Collections.FindAsync(id);
             if (collections == null)
             {
                 return NotFound();
@@ -124,7 +125,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var collections = await _context.Colections
+            var collections = await _context.Collections
                 .FirstOrDefaultAsync(m => m.CollectionId == id);
             if (collections == null)
             {
@@ -139,10 +140,10 @@ namespace Intranet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var collections = await _context.Colections.FindAsync(id);
+            var collections = await _context.Collections.FindAsync(id);
             if (collections != null)
             {
-                _context.Colections.Remove(collections);
+                _context.Collections.Remove(collections);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +152,7 @@ namespace Intranet.Controllers
 
         private bool CollectionsExists(int id)
         {
-            return _context.Colections.Any(e => e.CollectionId == id);
+            return _context.Collections.Any(e => e.CollectionId == id);
         }
     }
 }

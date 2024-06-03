@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets/img/logo.png"
     },
     {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/img/okladka-audiobook.jpeg",
+      "PackagePath": "staticwebassets/img/okladka-audiobook.jpeg"
+    },
+    {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/img/okladka.jpg",
       "PackagePath": "staticwebassets/img/okladka.jpg"
     },

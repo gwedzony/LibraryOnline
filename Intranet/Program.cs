@@ -1,11 +1,14 @@
 using Database.Context;
+using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>();
-builder.Configuration.GetConnectionString("DatabaseContext");
+builder.Services.AddTransient<MySqlConnection>(_ =>
+    new MySqlConnection(builder.Configuration.GetConnectionString("DatabaseContext")));
+
 
 var app = builder.Build();
 

@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.book-description-paragraph-mini {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}

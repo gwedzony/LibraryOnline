@@ -33,11 +33,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -59,6 +54,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.3.7, )"
+            },
+            "MySqlConnector.DependencyInjection": {
+              "target": "Package",
+              "version": "[2.3.6, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [

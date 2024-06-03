@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D3GIZd3hQ8FHc/tajdISd+mhRmcycNU85nxGos4WCR4=",
+  "Hash": "bNBtZqwzC9OzWigqo2Mo2EwdUt71F3tKzlD8XFDhfoA=",
   "Source": "Intranet",
   "BasePath": "_content/Intranet",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/library.png"
+    },
+    {
+      "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/okladki/okladka.jpg",
+      "SourceId": "Intranet",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/",
+      "BasePath": "_content/Intranet",
+      "RelativePath": "img/okladki/okladka.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/okladki/okladka.jpg"
     },
     {
       "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/js/site.js",

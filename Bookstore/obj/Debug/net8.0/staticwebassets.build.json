@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2zUZlLLjGT2kHC7CbKcQDXaYvzqE/WoWcRRp8w2poew=",
+  "Hash": "JHUIbN0GxlAQo38NWXx5ZfJKEevAZJEPT/HTnAaRQu0=",
   "Source": "Bookstore",
   "BasePath": "_content/Bookstore",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/logo.png"
+    },
+    {
+      "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/img/okladka-audiobook.jpeg",
+      "SourceId": "Bookstore",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/",
+      "BasePath": "_content/Bookstore",
+      "RelativePath": "img/okladka-audiobook.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/okladka-audiobook.jpeg"
     },
     {
       "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/img/okladka.jpg",

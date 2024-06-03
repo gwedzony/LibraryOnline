@@ -279,3 +279,7 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/ref/Intranet.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package-lock.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.sourcelink.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.DependencyInjection.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll

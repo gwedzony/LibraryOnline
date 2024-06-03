@@ -12,3 +12,4 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.pdb
 /Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.genruntimeconfig.cache
 /Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/ref/Database.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Database/obj/Debug/net8.0/Database.sourcelink.json

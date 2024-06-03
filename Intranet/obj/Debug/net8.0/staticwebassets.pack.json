@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets/img/library.png"
     },
     {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/okladki/okladka.jpg",
+      "PackagePath": "staticwebassets/img/okladki/okladka.jpg"
+    },
+    {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

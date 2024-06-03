@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4y6vGEkE/VLpuQEDn7HHbOsrV6ca95r4LvbgVfQjszm4qdh2ejJoL5MV3L2rEXCWzZpW5i/rGBEKXfaYV3osRA==",
+  "dgSpecHash": "SkEkBoZM+p5+AFqwKm7OT7d6r16fqOzX96z3WDYggICSIdcCFKFQ/2auYqBFyGpCuOk/nyFs8y9IYH0NdwWLvA==",
   "success": true,
   "projectFilePath": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/Intranet.csproj",
   "expectedPackageFiles": [
@@ -117,6 +117,8 @@
     "/Users/grzesiek/.nuget/packages/microsoft.visualstudio.web.codegenerators.mvc/8.0.2/microsoft.visualstudio.web.codegenerators.mvc.8.0.2.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/mono.texttemplating/2.3.1/mono.texttemplating.2.3.1.nupkg.sha512",
+    "/Users/grzesiek/.nuget/packages/mysqlconnector/2.3.7/mysqlconnector.2.3.7.nupkg.sha512",
+    "/Users/grzesiek/.nuget/packages/mysqlconnector.dependencyinjection/2.3.6/mysqlconnector.dependencyinjection.2.3.6.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/nuget.common/6.9.1/nuget.common.6.9.1.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/nuget.configuration/6.9.1/nuget.configuration.6.9.1.nupkg.sha512",
@@ -127,6 +129,7 @@
     "/Users/grzesiek/.nuget/packages/nuget.projectmodel/6.9.1/nuget.projectmodel.6.9.1.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/nuget.protocol/6.9.1/nuget.protocol.6.9.1.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/nuget.versioning/6.9.1/nuget.versioning.6.9.1.nupkg.sha512",
+    "/Users/grzesiek/.nuget/packages/pomelo.entityframeworkcore.mysql/8.0.2/pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/Users/grzesiek/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

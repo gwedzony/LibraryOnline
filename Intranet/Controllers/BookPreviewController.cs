@@ -22,7 +22,7 @@ namespace Intranet.Controllers
         // GET: BookPreview
         public async Task<IActionResult> Index()
         {
-            var databaseContext = _context.Bookpreviews.Include(b => b.Book);
+            var databaseContext = _context.BookPreviewCollections.Include(b => b.Book);
             return View(await databaseContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var bookPreview = await _context.Bookpreviews
+            var bookPreview = await _context.BookPreviewCollections 
                 .Include(b => b.Book)
                 .FirstOrDefaultAsync(m => m.PreviewId == id);
             if (bookPreview == null)
@@ -57,16 +57,16 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PreviewId,SmallCoverImg,PdfUrl,AudioUrl,BookId")] BookPreview bookPreview)
+        public async Task<IActionResult> Create([Bind("PreviewId,SmallCoverImg,PdfUrl,AudioUrl,BookId")] BookPreviewCollection bookPreviewCollection)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bookPreview);
+                _context.Add(bookPreviewCollection);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPreview.BookId);
-            return View(bookPreview);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPreviewCollection.BookId);
+            return View(bookPreviewCollection);
         }
 
         // GET: BookPreview/Edit/5
@@ -77,7 +77,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var bookPreview = await _context.Bookpreviews.FindAsync(id);
+            var bookPreview = await _context.BookPreviewCollections.FindAsync(id);
             if (bookPreview == null)
             {
                 return NotFound();
@@ -91,9 +91,9 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PreviewId,SmallCoverImg,PdfUrl,AudioUrl,BookId")] BookPreview bookPreview)
+        public async Task<IActionResult> Edit(int id, [Bind("PreviewId,SmallCoverImg,PdfUrl,AudioUrl,BookId")] BookPreviewCollection bookPreviewCollection)
         {
-            if (id != bookPreview.PreviewId)
+            if (id != bookPreviewCollection.PreviewId)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ namespace Intranet.Controllers
             {
                 try
                 {
-                    _context.Update(bookPreview);
+                    _context.Update(bookPreviewCollection);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookPreviewExists(bookPreview.PreviewId))
+                    if (!BookPreviewExists(bookPreviewCollection.PreviewId))
                     {
                         return NotFound();
                     }
@@ -118,8 +118,8 @@ namespace Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPreview.BookId);
-            return View(bookPreview);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPreviewCollection.BookId);
+            return View(bookPreviewCollection);
         }
 
         // GET: BookPreview/Delete/5
@@ -130,7 +130,7 @@ namespace Intranet.Controllers
                 return NotFound();
             }
 
-            var bookPreview = await _context.Bookpreviews
+            var bookPreview = await _context.BookPreviewCollections
                 .Include(b => b.Book)
                 .FirstOrDefaultAsync(m => m.PreviewId == id);
             if (bookPreview == null)
@@ -146,10 +146,10 @@ namespace Intranet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bookPreview = await _context.Bookpreviews.FindAsync(id);
+            var bookPreview = await _context.BookPreviewCollections.FindAsync(id);
             if (bookPreview != null)
             {
-                _context.Bookpreviews.Remove(bookPreview);
+                _context.BookPreviewCollections.Remove(bookPreview);
             }
 
             await _context.SaveChangesAsync();
@@ -158,7 +158,7 @@ namespace Intranet.Controllers
 
         private bool BookPreviewExists(int id)
         {
-            return _context.Bookpreviews.Any(e => e.PreviewId == id);
+            return _context.BookPreviewCollections.Any(e => e.PreviewId == id);
         }
     }
 }
