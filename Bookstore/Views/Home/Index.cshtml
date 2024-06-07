@@ -1,11 +1,13 @@
-﻿@model IEnumerable<Database.DATA.CMS.BookPreviewNewest>
+﻿@using System.Collections
+@using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages
+@model IEnumerable<Database.DATA.CMS.BookNewsCard>
 @{
     ViewData["Title"] = "Home Page";
 }
 
+
+<div class="m-5">@await Html.PartialAsync("MostReadBooks")</div>
 <div class="m-5">
     @await Html.PartialAsync("RandomCollectionBar")
-  
 </div>
-<div class="m-5">@await Html.PartialAsync("MostReadBooks")</div>
-<div class="m-5">@await Html.PartialAsync("NewTitles")</div>
+<div class="m-5">@await Html.PartialAsync("NewTitles",(IEnumerable<NewestBooksCards>)ViewBag.NewestBooks)</div>

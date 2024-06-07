@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -62,6 +63,17 @@ namespace Intranet.Controllers
                 _context.Add(collections);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                    .Where(y=>y.Count>0)
+                    .ToList();
+
+                foreach (var error in errors)
+                {
+                    Debug.WriteLine(error);
+                }
             }
             return View(collections);
         }

@@ -57,7 +57,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookPageId,BigCoverImg,PdfUrl,BookId")] BookPage bookPage)
+        public async Task<IActionResult> Create([Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,BookId")] BookPage bookPage)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookPageId,BigCoverImg,PdfUrl,BookId")] BookPage bookPage)
+        public async Task<IActionResult> Edit(int id, [Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,BookId")] BookPage bookPage)
         {
             if (id != bookPage.BookPageId)
             {

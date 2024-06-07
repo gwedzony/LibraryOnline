@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Database.DATA.BookScheme;
 using Database.DATA.CMS;
+using Database.DATA.Library;
 
 namespace Database.Data.BookScheme;
 
@@ -22,5 +23,7 @@ public class Author
     [Display(Name ="URL do zdjecia autora")]
     public string? PhotoUrl{ get; set; }
 
+    public ICollection<AuthorPage> AuthorPages { get; } = new List<AuthorPage>();
+    
     public ICollection<Book> Books { get; } = new List<Book>();
 }

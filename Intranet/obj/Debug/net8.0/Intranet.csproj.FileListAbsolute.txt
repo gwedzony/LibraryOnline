@@ -1,5 +1,7 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/appsettings.Development.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/appsettings.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package-lock.json
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Intranet.staticwebassets.runtime.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Intranet
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Intranet.deps.json
@@ -53,6 +55,8 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Mono.TextTemplating.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.DependencyInjection.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/NuGet.Common.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/NuGet.Configuration.dll
@@ -63,6 +67,7 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/NuGet.ProjectModel.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/NuGet.Protocol.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/NuGet.Versioning.dll
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/SQLitePCLRaw.batteries_v2.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/SQLitePCLRaw.core.dll
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/SQLitePCLRaw.provider.e_sqlite3.dll
@@ -261,6 +266,7 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.MvcApplicationPartsAssemblyInfo.cache
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.RazorAssemblyInfo.cache
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.RazorAssemblyInfo.cs
+/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.sourcelink.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/staticwebassets.build.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/staticwebassets.development.json
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/staticwebassets/msbuild.Intranet.Microsoft.AspNetCore.StaticWebAssets.props
@@ -277,9 +283,3 @@
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.pdb
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.genruntimeconfig.cache
 /Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/ref/Intranet.dll
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package-lock.json
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/package.json
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/obj/Debug/net8.0/Intranet.sourcelink.json
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.dll
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/MySqlConnector.DependencyInjection.dll
-/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll

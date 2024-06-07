@@ -27,3 +27,43 @@ body {
   -webkit-line-clamp: 4;
   overflow: hidden;
 }
+.newest-card-img {
+  width: 250px;
+  height:360px;
+}
+.readmorearrow{
+  position:absolute!important;
+  top:335px;
+}
+
+#selectedBookTitle{
+  max-width: 250px;
+  min-width: 250px;
+  min-height: 48px;
+}
+#selectedBookDescription{
+  max-width: 250px;
+  min-height: 200px;
+  min-width: 250px;
+}
+#selectedBookAuthor{
+  max-width: 200px;
+  min-width: 250px;
+}
+.newest-card-preview{
+  min-height: 360px;
+  
+}
+
+.intranet-headers{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 90px;
+  text-shadow: 0 0.5rem 1rem rgba(0,0,0,.35)!important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #000!important;
+  background-color: #ecedee!important;
+}

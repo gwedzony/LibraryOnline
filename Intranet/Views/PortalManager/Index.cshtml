@@ -1,0 +1,55 @@
+
+@{
+    ViewData["Title"] = "HomeBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="row">
+
+    
+    <div class="col-sm-6">
+        
+        <div class="card border-0">
+            <img src="img/online.png" class="card-img-top w-25 mx-auto" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Karta nowości</h5>
+                <p class="card-text">Klikając przycisk poniżej, administrator zostanie przeniesiony do strony, gdzie będzie mógł dodać nowe książki do biblioteki. Dzięki temu możemy poszerzyć naszą kolekcję o nowe tytuły.</p>
+                <div class="d-flex justify-content-end">
+                    <a asp-controller="BookNewsCard" asp-action="Index" class="btn btn-primary">Dodaj kartę nowości</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card border-0">
+            <img src="img/browser.png" class="card-img-top w-25 mx-auto" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Strona książki</h5>
+                <p class="card-text">Klikając przycisk poniżej, administrator zostanie przekierowany do strony umożliwiającej dodawanie nowych autorów do biblioteki. Ta funkcja pozwala na rozszerzenie naszej kolekcji o twórców o różnorodnych talentach literackich.</p>
+
+                <div class="d-flex justify-content-end mt-5">
+                    <a asp-controller="BookPage" asp-action="Index" class="btn btn-primary ">Dodaj stronę książki</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card border-0">
+            <img src="img/data-collection.png" class="card-img-top w-25 mx-auto" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Losowe kolekcje</h5>
+                <p class="card-text">Klikając przycisk poniżej, administrator zostanie przekierowany do strony umożliwiającej dodawanie książek do kolekcji. Ta funkcja tworzy rownież na stronie głownej w widoku kolekcji kartę.</p>
+
+                <div class="d-flex justify-content-end mt-5">
+                    <a asp-controller="BookCollections" asp-action="Index" class="btn btn-primary ">Dodawaj kolekcje do strony głownej</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

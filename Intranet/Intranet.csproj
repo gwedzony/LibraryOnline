@@ -65,6 +65,22 @@
       <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Details.cshtml" />
       <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Edit.cshtml" />
       <_ContentIncludedByDefault Remove="Views\ReadOnlineBook\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Chart\package.json" />
+      <_ContentIncludedByDefault Remove="Views\BookRandomCollection\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookRandomCollection\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookRandomCollection\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookRandomCollection\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookRandomCollection\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookReadPage\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookReadPage\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookReadPage\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookReadPage\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookReadPage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\RandomCollectionCard\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\RandomCollectionCard\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\RandomCollectionCard\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\RandomCollectionCard\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\RandomCollectionCard\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -73,6 +89,11 @@
       <UpToDateCheckInput Remove="Views\BookPage\Details.cshtml" />
       <UpToDateCheckInput Remove="Views\BookPage\Edit.cshtml" />
       <UpToDateCheckInput Remove="Views\BookPage\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

@@ -22,29 +22,28 @@ public class Book
     
     public long ReadCount { get; set; }
     
-    public DateTime AddDateTime { get; set; }
-    
-    /// <summary>
-    /// Foreign Keys
-    /// </summary>
-    
+
     [ForeignKey("Author")]
     public int IdAuthor { get; set; }
     public Author? Author { get; set; }
+    
+    
     
     [ForeignKey("BookType")]
     public int IdBookType{ get; set; }
     public BookType? BookType{ get; set; }
     
+    
     [ForeignKey("Genre")]
     public int IdGenre { get; set; }
     public Genre? Genre { get; set; }
 
-    public ICollection<Collections> Collections { get; } = new List<Collections>();
+    public int? BookNewsCardId { get; set; }
+    public BookNewsCard BookNewsCard { get; set; }
     
-    public BookPreviewCollection? BookPreview { get; set; }
+    public ICollection<BookCollection> BookCollections { get; set; }
+    
     public BookPage? BookPage { get; set; }
-    public ListenAudioBookPage? ListenAudioBookPage { get; set; }
-    public ReadOnlineBook? ReadOnlineBook{ get; set; }
+   
     
 }

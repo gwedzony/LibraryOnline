@@ -4,13 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista autorów</h1>
+<h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Lista autorów</h1>
 
-<p>
-    <a asp-action="Create">Dodaj autora</a>
-</p>
-<table class="table table-striped">
-    <thead class="table-light">
+
+<table class="table table-striped table-light table-hover shadow rounded">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -24,7 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.PhotoUrl)
             </th>
-            <th></th>
+            <th class="text-center">Zarzadzanie</th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +41,20 @@
                 @Html.DisplayFor(modelItem => item.PhotoUrl)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AuthorId"><i class="bi bi-pencil-square"></i></a> 
-                <a asp-action="Details" asp-route-id="@item.AuthorId"><i class="bi bi-info-square"></i></a> 
-                <a asp-action="Delete" asp-route-id="@item.AuthorId"><i class="bi bi-pencil-square"></i></a> 
+                <a asp-action="Edit" asp-route-id="@item.AuthorId"><i class="bi bi-pencil-square"></i> Edytuj</a> 
+                <a asp-action="Details" asp-route-id="@item.AuthorId"><i class="bi bi-clipboard"></i> Podgląd</a> 
+                <a asp-action="Delete" asp-route-id="@item.AuthorId"><i class="bi bi-trash"></i> Usuń</a> 
             </td>
+        
         </tr>
 }
+<tr>
+    <td colspan="2" class="text-center">
+        <a asp-action="Create" class="btn btn-outline-dark">
+            Dodaj nowego autora</a>
+    </td>
+</tr>
     </tbody>
 </table>
+
+@* ToDo: poprawki Guzik dodawania,Kolory ikon zarzadzanie. zmniejszyc szerokosc kolumn w create poprawic przyciski powrotu*@

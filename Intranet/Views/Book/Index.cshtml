@@ -4,19 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista książek</h1>
+<h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Lista książek</h1>
 
-<p>
-    <a asp-action="Create">Dodaj książke</a>
-</p>
-<table class="table table-striped">
-    <thead class="table-light">
+<table class="table table-striped table-light table-hover shadow rounded">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReadCount)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Author)
@@ -27,7 +27,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookNewsCardId)
+            </th>
+            <th class="text-center">Zarzadzanie</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ReadCount)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Author.Name)
             </td>
             <td>
@@ -49,11 +55,23 @@
                 @Html.DisplayFor(modelItem => item.Genre.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookId"><i class="bi bi-pencil-square"></i></a> 
-                <a asp-action="Details" asp-route-id="@item.BookId"><i class="bi bi-info-square"></i></a> 
-                <a asp-action="Delete" asp-route-id="@item.BookId"><i class="bi bi-x-square"></i></a>
+                @Html.DisplayFor(modelItem => item.BookNewsCardId)
             </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookId"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Details" asp-route-id="@item.BookId"><i class="bi bi-clipboard"></i> Podgląd</a>
+                <a asp-action="Delete" asp-route-id="@item.BookId"><i class="bi bi-trash"></i> Usuń</a>
+            </td>
+
         </tr>
 }
+<tr>
+    <td colspan="2" class="text-center">
+        <a asp-action="Create" class="btn btn-outline-dark">
+            Dodaj nową książke</a>
+    </td>
+</tr>
     </tbody>
 </table>
+
+@*ToDo: Guzik dodawania, wywalic booksnewscard,Kolory ikon zarzadzanie. zmniejszyc szerokosc kolumn cały create*@

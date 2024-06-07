@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-
+using Database.Data.BookScheme;
+using Database.DATA.CMS;
 
 
 namespace Database.DATA.BookScheme;
@@ -12,9 +13,7 @@ public class Collections
     [Required(ErrorMessage = "Musisz podać nazwę dla kolekcji")]
     [Display(Name = "Nazwa kolekcji (np. Nowoczesne, starożytne)")]
     public required string CollectionName { get; set; }
-    
-    public ICollection<Book> Books { get; } = new List<Book>();
-  
-    
-    
+
+    public ICollection<BookCollection>? BookCollections { get; set; }
+
 }

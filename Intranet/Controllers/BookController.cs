@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Database.Context;
 using Database.DATA.BookScheme;
-using Database.DATA.CMS;
 
 namespace Intranet.Controllers
 {
@@ -62,7 +61,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,Description,IdAuthor,IdBookType,IdGenre")] Book book)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Description,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +99,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Description,IdAuthor,IdBookType,IdGenre")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Description,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
         {
             if (id != book.BookId)
             {

@@ -22,21 +22,6 @@ namespace Database.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("BookCollections", b =>
-                {
-                    b.Property<int>("BooksBookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CollectionsCollectionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BooksBookId", "CollectionsCollectionId");
-
-                    b.HasIndex("CollectionsCollectionId");
-
-                    b.ToTable("BookCollections");
-                });
-
             modelBuilder.Entity("Database.DATA.BookScheme.Book", b =>
                 {
                     b.Property<int>("BookId")
@@ -45,8 +30,8 @@ namespace Database.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("BookId"));
 
-                    b.Property<DateTime>("AddDateTime")
-                        .HasColumnType("datetime(6)");
+                    b.Property<int?>("BookNewsCardId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -96,41 +81,13 @@ namespace Database.Migrations
                     b.ToTable("Collections");
                 });
 
-            modelBuilder.Entity("Database.DATA.CMS.BookPreviewCollection", b =>
+            modelBuilder.Entity("Database.DATA.CMS.BookNewsCard", b =>
                 {
-                    b.Property<int>("PreviewId")
+                    b.Property<int>("BookNewsCardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("PreviewId"));
-
-                    b.Property<string>("AudioUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PdfUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("SmallCoverImg")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("PreviewId");
-
-                    b.HasIndex("BookId")
-                        .IsUnique();
-
-                    b.ToTable("BookPreviewCollections");
-                });
-
-            modelBuilder.Entity("Database.DATA.CMS.BookPreviewNewest", b =>
-                {
-                    b.Property<int>("NewestBookId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("NewestBookId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("BookNewsCardId"));
 
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
@@ -141,11 +98,33 @@ namespace Database.Migrations
                     b.Property<string>("SmallCoverImg")
                         .HasColumnType("longtext");
 
-                    b.HasKey("NewestBookId");
+                    b.Property<DateTime>("WhenCreated")
+                        .HasColumnType("datetime(6)");
 
-                    b.HasIndex("BookId");
+                    b.HasKey("BookNewsCardId");
 
-                    b.ToTable("BookPreviewNewests");
+                    b.HasIndex("BookId")
+                        .IsUnique();
+
+                    b.ToTable("BookNewsCards");
+                });
+
+            modelBuilder.Entity("Database.DATA.Library.AuthorPage", b =>
+                {
+                    b.Property<int>("AuthorPageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AuthorPageId"));
+
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AuthorPageId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("AuthorPages");
                 });
 
             modelBuilder.Entity("Database.DATA.Library.BookPage", b =>
@@ -155,6 +134,9 @@ namespace Database.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("BookPageId"));
+
+                    b.Property<string>("AudioUrl")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("BigCoverImg")
                         .HasColumnType("longtext");
@@ -171,47 +153,6 @@ namespace Database.Migrations
                         .IsUnique();
 
                     b.ToTable("BookPages");
-                });
-
-            modelBuilder.Entity("Database.DATA.Library.ListenAudioBookPage", b =>
-                {
-                    b.Property<int>("AudioPageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AudioPageId"));
-
-                    b.Property<string>("AudioUrl")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("BookId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AudioPageId");
-
-                    b.HasIndex("BookId")
-                        .IsUnique();
-
-                    b.ToTable("ListenAudioBookPages");
-                });
-
-            modelBuilder.Entity("Database.DATA.Library.ReadOnlineBook", b =>
-                {
-                    b.Property<int>("ReadOnlineId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ReadOnlineId"));
-
-                    b.Property<int?>("BookId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ReadOnlineId");
-
-                    b.HasIndex("BookId")
-                        .IsUnique();
-
-                    b.ToTable("ReadOnlineBooks");
                 });
 
             modelBuilder.Entity("Database.Data.BookScheme.Author", b =>
@@ -239,6 +180,21 @@ namespace Database.Migrations
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("Database.Data.BookScheme.BookCollection", b =>
+                {
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CollectionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookId", "CollectionId");
+
+                    b.HasIndex("CollectionId");
+
+                    b.ToTable("BookCollections");
                 });
 
             modelBuilder.Entity("Database.Data.BookScheme.BookType", b =>
@@ -275,21 +231,6 @@ namespace Database.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("BookCollections", b =>
-                {
-                    b.HasOne("Database.DATA.BookScheme.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksBookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Database.DATA.BookScheme.Collections", null)
-                        .WithMany()
-                        .HasForeignKey("CollectionsCollectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Database.DATA.BookScheme.Book", b =>
                 {
                     b.HasOne("Database.Data.BookScheme.Author", "Author")
@@ -317,22 +258,22 @@ namespace Database.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("Database.DATA.CMS.BookPreviewCollection", b =>
+            modelBuilder.Entity("Database.DATA.CMS.BookNewsCard", b =>
                 {
                     b.HasOne("Database.DATA.BookScheme.Book", "Book")
-                        .WithOne("BookPreview")
-                        .HasForeignKey("Database.DATA.CMS.BookPreviewCollection", "BookId");
+                        .WithOne("BookNewsCard")
+                        .HasForeignKey("Database.DATA.CMS.BookNewsCard", "BookId");
 
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("Database.DATA.CMS.BookPreviewNewest", b =>
+            modelBuilder.Entity("Database.DATA.Library.AuthorPage", b =>
                 {
-                    b.HasOne("Database.DATA.BookScheme.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId");
+                    b.HasOne("Database.Data.BookScheme.Author", "Author")
+                        .WithMany("AuthorPages")
+                        .HasForeignKey("AuthorId");
 
-                    b.Navigation("Book");
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("Database.DATA.Library.BookPage", b =>
@@ -344,37 +285,44 @@ namespace Database.Migrations
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("Database.DATA.Library.ListenAudioBookPage", b =>
+            modelBuilder.Entity("Database.Data.BookScheme.BookCollection", b =>
                 {
                     b.HasOne("Database.DATA.BookScheme.Book", "Book")
-                        .WithOne("ListenAudioBookPage")
-                        .HasForeignKey("Database.DATA.Library.ListenAudioBookPage", "BookId");
+                        .WithMany("BookCollections")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Database.DATA.BookScheme.Collections", "Collections")
+                        .WithMany("BookCollections")
+                        .HasForeignKey("CollectionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Book");
-                });
 
-            modelBuilder.Entity("Database.DATA.Library.ReadOnlineBook", b =>
-                {
-                    b.HasOne("Database.DATA.BookScheme.Book", "Book")
-                        .WithOne("ReadOnlineBook")
-                        .HasForeignKey("Database.DATA.Library.ReadOnlineBook", "BookId");
-
-                    b.Navigation("Book");
+                    b.Navigation("Collections");
                 });
 
             modelBuilder.Entity("Database.DATA.BookScheme.Book", b =>
                 {
+                    b.Navigation("BookCollections");
+
+                    b.Navigation("BookNewsCard")
+                        .IsRequired();
+
                     b.Navigation("BookPage");
+                });
 
-                    b.Navigation("BookPreview");
-
-                    b.Navigation("ListenAudioBookPage");
-
-                    b.Navigation("ReadOnlineBook");
+            modelBuilder.Entity("Database.DATA.BookScheme.Collections", b =>
+                {
+                    b.Navigation("BookCollections");
                 });
 
             modelBuilder.Entity("Database.Data.BookScheme.Author", b =>
                 {
+                    b.Navigation("AuthorPages");
+
                     b.Navigation("Books");
                 });
 

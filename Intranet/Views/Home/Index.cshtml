@@ -4,18 +4,63 @@
 
 
 <div class="col mx-auto mb-3 border-0">
-    <div class="card border-0">
-        <img src="img/internet.png" class="card-img-top w-25 h-25 mx-auto" alt="..."> 
+    <div class="card border-0 text-center">
+        <img src="img/dashboard.png" class="card-img-top mx-auto" style="width:256px;height: 256px;" alt="...">
         <div class="card-body">
-    
+
             <h5 class="card-title text-center">Zarzadzanie portalem</h5>
             <p class="card-text text-center">Ta karta zawiera dwa przyciski: jeden do tworzenia nowych stron, a drugi do podglądu istniejących. Użytkownik może szybko projektować i oceniać swoje strony internetowe, dzięki prostemu interfejsowi i intuicyjnym funkcjom.</p>
             <div class="d-flex justify-content-evenly">
-                <a asp-controller="BookPage" asp-action="Create" class="btn btn-primary">Dodaj stronę książki</a>
-                <a asp-controller="BookPreview" asp-action="Create" class="btn btn-primary">Dodaj stronę podgladu</a>
+                <a asp-controller="PortalManager" asp-action="Index" class="btn btn-primary">Zarzadzanie portalem</a>
                 <a asp-controller="HomeBook" asp-action="Index" class="btn btn-primary">Zarządzanie książkami</a>
             </div>
         </div>
     </div>
-</div>
 
+
+            @*<div class="text-center">
+                <h1 class="display-4">Welcome</h1>
+                <p>Example of Chart.js in ASP.NET Core</p>
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+
+            <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar', // typ wykresu: 'bar', 'line', 'pie', 'doughnut', itp.
+        data: {
+            labels: ['@{  }', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>*@
+
+
+</div>

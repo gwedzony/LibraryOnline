@@ -4,93 +4,41 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="row p-2">
+<h1>Create</h1>
 
-
-    <div class="col-4">
-        <h1>Dodaj strone książki</h1>
-
-        <h4>Strona książki</h4>
-        <hr/>
+<h4>BookPage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="BigCoverImg" class="control-label"></label>
-                <input asp-for="BigCoverImg" class="form-control" id="CoverImgInput" onchange="changeImage()"/>
+                <input asp-for="BigCoverImg" class="form-control" />
                 <span asp-validation-for="BigCoverImg" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PdfUrl" class="control-label"></label>
-                <input asp-for="PdfUrl" class="form-control"/>
+                <input asp-for="PdfUrl" class="form-control" />
                 <span asp-validation-for="PdfUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BookId" class="control-label"></label>
-                <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                <label asp-for="AudioUrl" class="control-label"></label>
+                <input asp-for="AudioUrl" class="form-control" />
+                <span asp-validation-for="AudioUrl" class="text-danger"></span>
             </div>
-            <div class="form-group mt-4">
-                <input type="submit" value="Dodaj" class="btn btn-primary"/>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label"></label>
+                <select asp-for="BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-    <div class="col-8 d-flex flex-row">
-        <div class="row">
-            <div class="col-6">
-
-                <div class="d-flex flex-column">
-
-                    <img src="#" class="w-25 align-self-center rounded-3" alt="okladka" id="okladka"/>
-
-                    <div class="mt-5 ms-5">
-                        <p class="ms-3">Rodzaj: </p>
-                        <p class="ms-3">Gatunek: </p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="d-flex flex-column">
-
-                    <h3>Imie autora</h3>
-                    <h1>Tyul ksiazki</h1>
-
-
-                    <p class="book-description-paragraph-mini mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis elementum nibh tellus molestie nunc non blandit massa. Proin sed libero enim sed faucibus turpis in eu mi. Metus vulputate eu scelerisque felis imperdiet. Facilisis gravida neque convallis a cras semper auctor. Commodo sed egestas egestas fringilla. Montes nascetur ridiculus mus mauris vitae ultricies. Sit amet venenatis urna cursus eget. Ut pharetra sit amet aliquam id. Nibh mauris cursus mattis molestie a. Fringilla est ullamcorper eget nulla. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Duis at tellus at urna condimentum mattis. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Ullamcorper sit amet risus nullam eget felis. Dolor morbi non arcu risus. Et leo duis ut diam quam nulla. Tempor nec feugiat nisl pretium fusce id.
-
-                        Ornare massa eget egestas purus viverra. Justo nec ultrices dui sapien eget mi proin. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Aliquam sem et tortor consequat id. Gravida in fermentum et sollicitudin ac orci. Sed velit dignissim sodales ut eu sem integer. Ornare quam viverra orci sagittis eu volutpat odio facilisis. Lacus viverra vitae congue eu consequat ac felis donec et. Luctus venenatis lectus magna fringilla. Senectus et netus et malesuada fames. A lacus vestibulum sed arcu non. Sed velit dignissim sodales ut eu sem integer vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Habitant morbi tristique senectus et netus et malesuada.
-
-                        Massa ultricies mi quis hendrerit. Sapien eget mi proin sed libero enim. Nibh tellus molestie nunc non blandit massa enim nec. Non sodales neque sodales ut etiam sit amet nisl purus. Elit at imperdiet dui accumsan sit amet. Nulla facilisi morbi tempus iaculis urna id volutpat. Nunc non blandit massa enim nec dui. Pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies. Nisl nunc mi ipsum faucibus vitae aliquet nec. Varius sit amet mattis vulputate enim nulla aliquet. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Natoque penatibus et magnis dis. Ut lectus arcu bibendum at varius. Faucibus vitae aliquet nec ullamcorper sit. Egestas congue quisque egestas diam in.
-
-                        Pretium quam vulputate dignissim suspendisse in est. Venenatis cras sed felis eget velit aliquet sagittis. Ultricies mi quis hendrerit dolor magna eget est. Id cursus metus aliquam eleifend mi. Semper eget duis at tellus at urna condimentum mattis. Sed tempus urna et pharetra pharetra massa massa. Tellus elementum sagittis vitae et leo duis ut. Turpis in eu mi bibendum neque egestas. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Scelerisque varius morbi enim nunc.
-
-                        Nulla facilisi nullam vehicula ipsum a arcu cursus. Feugiat sed lectus vestibulum mattis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Ut tristique et egestas quis. Pharetra sit amet aliquam id diam maecenas ultricies. Diam donec adipiscing tristique risus nec feugiat. Tempus iaculis urna id volutpat lacus laoreet. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Purus semper eget duis at tellus at. Id cursus metus aliquam eleifend mi in nulla posuere. Elementum integer enim neque volutpat ac. In nibh mauris cursus mattis. Hac habitasse platea dictumst quisque sagittis purus. Nulla at volutpat diam ut venenatis tellus in. Pulvinar neque laoreet suspendisse interdum consectetur libero id. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Eget velit aliquet sagittis id consectetur purus. Erat imperdiet sed euismod nisi porta. Volutpat ac tincidunt vitae semper quis lectus.
-                    </p>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
 </div>
+
 <div>
-    <a asp-action="Index">Lista stron</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
-
-<script>
-let imageSource = document.getElementById("okladka");
-imageSource.setAttribute("src","/img/okladki/okladka.jpg");
-
-let coverImageInput = document.getElementById("CoverImgInput");
-
-function changeImage(){
-    
-if (coverImageInput.value.endsWith(".jpg") || coverImageInput.value.endsWith(".png")){
-    imageSource.setAttribute("src",coverImageInput.value);
-}
-
-}
-
-</script>

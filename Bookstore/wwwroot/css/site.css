@@ -47,3 +47,8 @@ h1, h2, h3{
   overflow: hidden;
 }
 
+.newest-card-img {
+  width: 200px;
+  height:243px;
+}
+

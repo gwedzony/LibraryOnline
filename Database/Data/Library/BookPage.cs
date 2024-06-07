@@ -16,6 +16,9 @@ public class BookPage
    [Display(Name = "Link do książki")]
    public string? PdfUrl{ get; set; }
    
+   [Display(Name = "Link do Audiobook`a")]
+   public string? AudioUrl{ get; set; }
+   
    [ForeignKey("Books")]
    public int? BookId { get; set; }
 

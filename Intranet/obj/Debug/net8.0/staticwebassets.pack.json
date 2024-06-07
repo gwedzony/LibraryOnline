@@ -13,12 +13,24 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/editor.png",
-      "PackagePath": "staticwebassets/img/editor.png"
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/avartar.jpeg",
+      "PackagePath": "staticwebassets/img/avartar.jpeg"
     },
     {
-      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/internet.png",
-      "PackagePath": "staticwebassets/img/internet.png"
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/browser.png",
+      "PackagePath": "staticwebassets/img/browser.png"
+    },
+    {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/dashboard.png",
+      "PackagePath": "staticwebassets/img/dashboard.png"
+    },
+    {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/data-collection.png",
+      "PackagePath": "staticwebassets/img/data-collection.png"
+    },
+    {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/editor.png",
+      "PackagePath": "staticwebassets/img/editor.png"
     },
     {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/library.png",
@@ -27,6 +39,14 @@
     {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/okladki/okladka.jpg",
       "PackagePath": "staticwebassets/img/okladki/okladka.jpg"
+    },
+    {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/img/online.png",
+      "PackagePath": "staticwebassets/img/online.png"
+    },
+    {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/js/Chart.bundle.min.js",
+      "PackagePath": "staticwebassets/js/Chart.bundle.min.js"
     },
     {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Intranet/wwwroot/js/site.js",

@@ -1,0 +1,101 @@
+@using System.Text
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Database.DATA.CMS.BookNewsCard
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-flex flex-row justify-content-center ">
+    <div class="d-flex flex-row m-2 border rounded shadow-sm position-relative newest-card-preview">
+        <div class="position-absolute top-100 start-0 translate-middle"><h4 class="no-wrap pt-5">Link do strony książki</h4></div>
+        <h1><i class="bi-arrow-up-right readmorearrow"></i></h1>
+
+        <div class="card-body d-flex flex-column bg-light ">
+            <p class="fw-lighter fs-6"></p>
+            <h5><div id="selectedBookTitle" >Tytuł książki</div></h5>
+            <h6><div id="selectedBookAuthor" >Imie i nazwisko autora</div></h6>
+            <div id="selectedBookDescription" ></div>
+            <a href="#" class="link-info text-decoration-none disabled">Czytaj więcej</a>
+        </div>
+        <div class=""> <img src="../img/okladki/okladka.jpg" class="card-img newest-card-img" alt="okladka ksiazki"></div>
+        <div class="position-absolute top-0 start-100 translate-middle">
+            <div class="d-block"><h4 class="text-nowrap ps-5 pb-5 ms-5">Link do zdjecia okładki</h4></div>
+
+        </div>
+        <h1><i class="bi-arrow-down-left position-absolute top-0 translate-middle"></i></h1>
+    </div>
+
+</div>
+<h1 class="mt-5">Karta nowej książki - sekcja nowości</h1>
+<h4>Utworz nową kartę</h4>
+<hr />
+<div class="row ">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SmallCoverImg" class="control-label"></label>
+                <input asp-for="SmallCoverImg" class="form-control" />
+                <span asp-validation-for="SmallCoverImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookLink" class="control-label"></label>
+                <input asp-for="BookLink" class="form-control" />
+                <span asp-validation-for="BookLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WhenCreated" class="control-label"></label>
+                <input asp-for="WhenCreated" class="form-control" />
+                <span asp-validation-for="WhenCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label">Wybierz książke</label>
+                <select asp-for="BookId" id="bookSelect" class="form-select" asp-items="ViewBag.BookId"></select>
+            </div>
+            <div class="form-group m-2 d-flex justify-content-end gap-2">
+                <a asp-action="Index"><div class="btn btn-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div></a>
+                <button type="submit" class="btn btn-primary">Dodaj<span class="mx-2"></span><i class="bi bi-plus-circle-fill"></i> </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var bookSelect = document.getElementById('bookSelect');
+        var selectedBookTitle = document.getElementById('selectedBookTitle');
+        var selectedBookDescription = document.getElementById('selectedBookDescription');
+        var selectedBookAuthor = document.getElementById('selectedBookAuthor');
+        
+        bookSelect.addEventListener('change', function() {
+            var selectedBookId = this.value;
+            selectedBookTitle.innerHTML = 'Nie wybrano ksiazki';
+                
+                var books = [
+                @foreach (var book in ViewBag.NewestBook)
+                {
+                    @:{ id: @book.Id, title: '@Encoding.UTF8.GetString(Encoding.Default.GetBytes(book.BookTitle))', desc: '@Encoding.UTF8.GetString(Encoding.Default.GetBytes(book.BookDescription))', author: '@book.BookAuthor'},
+                }
+                ]
+       
+            for (var i = 0; i < books.length; i++) {
+                if (books[i].id == selectedBookId) {
+                    selectedBookTitle.innerText = books[i].title;
+                    selectedBookDescription.innerText = books[i].desc;
+                    selectedBookAuthor.innerText = books[i].author;
+                   
+                    break;
+                }
+            }
+            
+        });
+    });
+    
+    
+</script>

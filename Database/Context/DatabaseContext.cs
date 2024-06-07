@@ -10,21 +10,22 @@ public partial class DatabaseContext : DbContext
 {
     
     public DbSet<Book> Books { get; set; }
-    public DbSet<Author> Authors {  get; set; }
+    public DbSet<Author> Authors { get; set; }
+    public DbSet<BookCollection> BookCollections { get; set; }
+    public DbSet<BookType> BookTypes { get; set; }
+    public DbSet<Collections> Collections { get; set; }
     public DbSet<Genre> Genres { get; set; }
-
-    public DbSet<BookPreviewCollection> BookPreviewCollections { get; set; }
-    public DbSet<BookPreviewNewest> BookPreviewNewests { get; set; }
+    public DbSet<BookNewsCard> BookNewsCards { get; set; }
     public DbSet<BookPage> BookPages { get; set; }
-    public DbSet<ListenAudioBookPage> ListenAudioBookPages { get; set; }
-    public DbSet<ReadOnlineBook> ReadOnlineBooks { get; set; }
-    public DbSet<BookType> BookTypes {  get; set; }
-    public DbSet<Collections> Collections {  get; set; }
+    public DbSet<AuthorPage> AuthorPages { get; set; }
+    
+ 
     
     
     
     public DatabaseContext()
     {
+        
     }
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options)
@@ -38,7 +39,34 @@ public partial class DatabaseContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<Book>()
+            .HasOne(a => a.Author)
+            .WithMany(b => b.Books);
+        modelBuilder.Entity<Book>()
+            .HasOne(bt => bt.BookType)
+            .WithMany(bt => bt.Book);
+        modelBuilder.Entity<Book>()
+            .HasOne(bg => bg.Genre)
+            .WithMany(bg => bg.Book);
         
+        modelBuilder.Entity<BookCollection>()
+            .HasKey(bc => new { bc.BookId, bc.CollectionId });
+
+        modelBuilder.Entity<BookCollection>()
+            .HasOne(bc => bc.Book)
+            .WithMany(b => b.BookCollections)
+            .HasForeignKey(bc => bc.BookId);
+
+        modelBuilder.Entity<BookCollection>()
+            .HasOne(bc => bc.Collections)
+            .WithMany(c => c.BookCollections)
+            .HasForeignKey(bc => bc.CollectionId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Book>()
+            .HasOne(bnc => bnc.BookNewsCard)
+            .WithOne(bnc => bnc.Book)
+            .HasForeignKey<BookNewsCard>(b => b.BookId);
     }
 
 
