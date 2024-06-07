@@ -49,7 +49,7 @@ namespace Intranet.Controllers
         // GET: BookNewsCard/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description");
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
             ViewBag.NewestBook = new List<NewestBooksCardsPreview>();
             return View();
         }

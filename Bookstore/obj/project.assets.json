@@ -6695,33 +6695,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/grzesiek/.nuget/packages/": {}
+    "C:\\Users\\Sklep1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Bookstore.csproj",
+      "projectUniqueName": "C:\\Users\\Sklep1\\RiderProjects\\LibraryOnline\\Bookstore\\Bookstore.csproj",
       "projectName": "Bookstore",
-      "projectPath": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Bookstore.csproj",
-      "packagesPath": "/Users/grzesiek/.nuget/packages/",
-      "outputPath": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/obj/",
+      "projectPath": "C:\\Users\\Sklep1\\RiderProjects\\LibraryOnline\\Bookstore\\Bookstore.csproj",
+      "packagesPath": "C:\\Users\\Sklep1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sklep1\\RiderProjects\\LibraryOnline\\Bookstore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/grzesiek/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Sklep1\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/NsVJ63MggXIxkcObLlqXJ2phrJb4VxjIhYWWj4DIaO36kaxwHl/api/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/grzesiek/RiderProjects/ProjektWWW/Database/Database.csproj": {
-              "projectPath": "/Users/grzesiek/RiderProjects/ProjektWWW/Database/Database.csproj"
+            "C:\\Users\\Sklep1\\RiderProjects\\LibraryOnline\\Database\\Database.csproj": {
+              "projectPath": "C:\\Users\\Sklep1\\RiderProjects\\LibraryOnline\\Database\\Database.csproj"
             }
           }
         }
@@ -6772,7 +6773,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

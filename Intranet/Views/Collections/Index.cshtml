@@ -83,21 +83,21 @@
                     </td>
                    
         <td class="text-center">
-            <a data-bs-toggle="modal" data-bs-target="#editGenreModal" data-genre-id="@item.CollectionId" data-genre-name="@item.CollectionName" class="text-black mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
-            <a asp-action="Delete" asp-route-id="@item.CollectionId" class="text-black mx-2"><i class="bi bi-trash"></i> Usuń</a>
+            <a data-bs-toggle="modal" data-bs-target="#editGenreModal" data-genre-id="@item.CollectionId" data-genre-name="@item.CollectionName" class="mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
+            <a asp-action="Delete" asp-route-id="@item.CollectionId" class="mx-2"><i class="bi bi-trash"></i> Usuń</a>
         </td>
     </tr>
 }
 
 <tr>
     <td colspan="2" class="text-center">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addGenreModal" class="btn btn-outline-dark">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addGenreModal" class="btn btn-outline-primary">
             Dodaj nową kolekcje</a>
     </td>
 </tr>
 </tbody>
 </table>
-<a asp-controller="HomeBook" asp-action="Index" class="btn btn-outline-dark mt-5"><i class="bi bi-arrow-bar-left"> Powrót</i></a>
+@*<a asp-controller="HomeBook" asp-action="Index" class="btn btn-outline-dark mt-5"><i class="bi bi-arrow-bar-left"> Powrót</i></a>*@
 
 @* ToDo: Zmiana nazw oraz placeholder *@
 

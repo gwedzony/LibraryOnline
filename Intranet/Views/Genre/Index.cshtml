@@ -83,21 +83,21 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td class="text-center">
-                <a data-bs-toggle="modal" data-bs-target="#editGenreModal" data-genre-id="@item.GenreId" data-genre-name="@item.Name" class="text-black mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
-                <a asp-action="Delete" asp-route-id="@item.GenreId" class="text-black mx-2"><i class="bi bi-trash"></i> Usuń</a>
+                <a data-bs-toggle="modal" data-bs-target="#editGenreModal" data-genre-id="@item.GenreId" data-genre-name="@item.Name" class="mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Delete" asp-route-id="@item.GenreId" class="mx-2"><i class="bi bi-trash"></i> Usuń</a>
             </td>
         </tr>
     }
     <tr>
         <td colspan="2" class="text-center">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#addGenreModal" class="btn btn-outline-dark">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#addGenreModal" class="btn btn-outline-primary">
                 Utwórz nowy gatunek</a>
         </td>
     </tr>
     </tbody>
 </table>
 
-<a asp-controller="HomeBook" asp-action="Index" class="btn btn-outline-dark mt-5"><i class="bi bi-arrow-bar-left"> Powrót</i></a>
+@*<a asp-controller="HomeBook" asp-action="Index" class="btn btn-outline-dark mt-5"><i class="bi bi-arrow-bar-left"> Powrót</i></a>*@
 <script>
    
     var editGenreModal = document.getElementById("editGenreModal");
