@@ -6,9 +6,10 @@ namespace Database.Data.BookScheme;
 
 public class BookCollection
 {
+    
     public int BookId { get; set; }
-    public Book Book { get; set; }
+    public Book? Book { get; set; } = null!;
     
     public int CollectionId { get; set; }
-    public Collections Collections { get; set; }
+    public Collections? Collections { get; set; } = null!;
 }

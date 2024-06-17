@@ -3,41 +3,40 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Lista książek</h1>
 
 <table class="table table-striped table-light table-hover shadow rounded">
     <thead class="table-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                Rodzaj
-            </th>
-            <th>
-                Gatunek
-            </th>
-            <th class="text-center">Zarzadzanie</th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Autor
+        </th>
+        <th>
+            Rodzaj
+        </th>
+        <th>
+            Gatunek
+        </th>
+        <th class="text-center">Zarzadzanie</th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                <span class="d-inline-block" style="max-width: 150px; overflow:hidden;text-overflow: ellipsis; white-space: nowrap"> @Html.DisplayFor(modelItem => item.Description)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)
+                @item.Author.Name  @item.Author.Surname
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BookType.BookTypeName)
@@ -52,14 +51,12 @@
             </td>
 
         </tr>
-}
-<tr>
-    <td colspan="6" class="text-center">
-        <a asp-action="Create" class="btn btn-outline-primary">
-            Dodaj nową książke</a>
-    </td>
-</tr>
+    }
+    <tr>
+        <td colspan="6" class="text-center">
+            <a asp-action="Create" class="btn btn-outline-primary">
+                Dodaj nową książke</a>
+        </td>
+    </tr>
     </tbody>
 </table>
-
-@*ToDo: Guzik dodawania, wywalic booksnewscard,Kolory ikon zarzadzanie. zmniejszyc szerokosc kolumn cały create*@

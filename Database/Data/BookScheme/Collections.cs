@@ -14,6 +14,7 @@ public class Collections
     [Display(Name = "Nazwa kolekcji (np. Nowoczesne, starożytne)")]
     public required string CollectionName { get; set; }
 
-    public ICollection<BookCollection>? BookCollections { get; set; }
+    public ICollection<BookCollection> BookCollections { get; } = [];
+   
 
 }

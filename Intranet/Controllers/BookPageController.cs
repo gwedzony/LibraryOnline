@@ -48,7 +48,7 @@ namespace Intranet.Controllers
         // GET: BookPage/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description");
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,BookId")] BookPage bookPage)
+        public async Task<IActionResult> Create([Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,LongDescription,BookId")] BookPage bookPage)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Intranet.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPage.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title", bookPage.BookId);
             return View(bookPage);
         }
 
@@ -82,7 +82,7 @@ namespace Intranet.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPage.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title", bookPage.BookId);
             return View(bookPage);
         }
 
@@ -91,7 +91,7 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,BookId")] BookPage bookPage)
+        public async Task<IActionResult> Edit(int id, [Bind("BookPageId,BigCoverImg,PdfUrl,AudioUrl,LongDescription,BookId")] BookPage bookPage)
         {
             if (id != bookPage.BookPageId)
             {
@@ -118,7 +118,7 @@ namespace Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookPage.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title", bookPage.BookId);
             return View(bookPage);
         }
 

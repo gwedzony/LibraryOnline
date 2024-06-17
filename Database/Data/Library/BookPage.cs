@@ -19,6 +19,10 @@ public class BookPage
    [Display(Name = "Link do Audiobook`a")]
    public string? AudioUrl{ get; set; }
    
+   [Required(ErrorMessage = "Dodaj długi opis książki")]
+   [Display(Name = "Opis książki")]
+   public string LongDescription { get; set; }
+   
    [ForeignKey("Books")]
    public int? BookId { get; set; }
 

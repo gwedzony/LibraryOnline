@@ -4,47 +4,61 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Dodaj nowego autora do bazy</h1>
 
-<h4>Dodaj autora</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row p-2  mt-5">
+    <div class="col-6">
+        <div class="bg-dark rounded p-2">
+            <h1 class="text-white">Dodaj nowego autora do bazy</h1>
+
+            <h4 class="text-white">Dodaj autora</h4>
+        </div>
+        <hr />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Surname" class="control-label"></label>
-                <input asp-for="Surname" class="form-control" />
+                <input asp-for="Surname" class="form-control"/>
                 <span asp-validation-for="Surname" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Krótki opis autora:</label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhotoUrl" class="control-label"></label>
-                <input asp-for="PhotoUrl" class="form-control" />
+                <input asp-for="PhotoUrl" class="form-control" id="photoUrl"/>
                 <span asp-validation-for="PhotoUrl" class="text-danger"></span>
             </div>
             <div class="form-group mt-4">
-                <a asp-action="Index"><div class="btn btn-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div></a>
-                <button type="submit" class="btn btn-primary">Dodaj<span class="mx-2"></span><i class="bi bi-plus-circle-fill"></i> </button>
+                <a asp-action="Index">
+                    <div class="btn btn-outline-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div></a>
+                <button type="submit" class="btn btn-outline-primary">Dodaj<span class="mx-2"></span><i class="bi bi-plus-circle-fill"></i> </button>
             </div>
         </form>
     </div>
     
-    <div class="col-md-4 ms-5">
-        <div><img src="../img/avartar.jpeg" alt="Zdjęcie autora" style="width:414px;height:414px;"  class="border border-1 border-dark rounded"/></div>
+    <div class="col-6">
+        <div>
+            <img src="../img/avartar.jpeg" alt="Zdjęcie autora" style="width:414px;height:414px;" class="border border-1 border-dark rounded" id="image"/>
+        </div>
     </div>
 </div>
 
-<div class="mt-5">
-    <a asp-controller="HomeBook" asp-action="Index" class="text-decoration-none"><i class="bi bi-house"></i> Wróć do panelu</a>
-</div>
-
+<script>
+    let image = document.getElementById("image");
+    let photoUrl = document.getElementById("photoUrl");
+    
+    photoUrl.addEventListener('change', ()=>
+    {
+        if (photoUrl.value.endsWith(".png") || photoUrl.value.endsWith(".jpg"))
+        {
+            image.setAttribute("src",photoUrl.value);
+        }});
+    
+</script>

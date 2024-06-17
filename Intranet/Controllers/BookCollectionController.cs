@@ -10,23 +10,23 @@ using Database.Data.BookScheme;
 
 namespace Intranet.Controllers
 {
-    public class BookCollectionsController : Controller
+    public class BookCollectionController : Controller
     {
         private readonly DatabaseContext _context;
 
-        public BookCollectionsController(DatabaseContext context)
+        public BookCollectionController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: BookCollections
+        // GET: BookCollection
         public async Task<IActionResult> Index()
         {
             var databaseContext = _context.BookCollections.Include(b => b.Book).Include(b => b.Collections);
             return View(await databaseContext.ToListAsync());
         }
 
-        // GET: BookCollections/Details/5
+        // GET: BookCollection/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,51 +46,53 @@ namespace Intranet.Controllers
             return View(bookCollection);
         }
 
-        // GET: BookCollections/Create
+        // GET: BookCollection/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description");
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
             ViewData["CollectionId"] = new SelectList(_context.Collections, "CollectionId", "CollectionName");
             return View();
         }
 
-        // POST: BookCollections/Create
+        // POST: BookCollection/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,CollectionId")] BookCollection bookCollection)
+        public async Task<IActionResult> Create([Bind("BookId,CollectionId,Book,Collections")] BookCollection bookCollection)
         {
+
+            var book = await _context.Books.FirstOrDefaultAsync(x => x.BookId == bookCollection.BookId);
+            var collection = await _context.Collections.FirstOrDefaultAsync(c => c.CollectionId == bookCollection.CollectionId);
+            
+            bookCollection.Book = book;
+            bookCollection.Collections = collection;
+            
             if (ModelState.IsValid)
             {
                 _context.Add(bookCollection);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookCollection.BookId);
             ViewData["CollectionId"] = new SelectList(_context.Collections, "CollectionId", "CollectionName", bookCollection.CollectionId);
+            
             return View(bookCollection);
         }
 
-        // GET: BookCollections/Edit/5
+        // GET: BookCollection/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bookCollection = await _context.BookCollections.FindAsync(id);
-            if (bookCollection == null)
-            {
-                return NotFound();
-            }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookCollection.BookId);
+       
+            var bookCollection = await _context.BookCollections.FirstOrDefaultAsync(x=>x.CollectionId == id);
+     
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title", bookCollection.BookId);
             ViewData["CollectionId"] = new SelectList(_context.Collections, "CollectionId", "CollectionName", bookCollection.CollectionId);
             return View(bookCollection);
         }
 
-        // POST: BookCollections/Edit/5
+        // POST: BookCollection/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -127,7 +129,7 @@ namespace Intranet.Controllers
             return View(bookCollection);
         }
 
-        // GET: BookCollections/Delete/5
+        // GET: BookCollection/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,21 +140,19 @@ namespace Intranet.Controllers
             var bookCollection = await _context.BookCollections
                 .Include(b => b.Book)
                 .Include(b => b.Collections)
-                .FirstOrDefaultAsync(m => m.BookId == id);
-            if (bookCollection == null)
-            {
-                return NotFound();
-            }
-
+                .FirstOrDefaultAsync(m => m.CollectionId == id);
+            
+     
             return View(bookCollection);
         }
 
-        // POST: BookCollections/Delete/5
+        // POST: BookCollection/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int BookId, int CollectionId)
         {
-            var bookCollection = await _context.BookCollections.FindAsync(id);
+            var bookCollection = await _context.BookCollections.FirstOrDefaultAsync(collection => collection.BookId == BookId && collection.CollectionId == CollectionId);
+            
             if (bookCollection != null)
             {
                 _context.BookCollections.Remove(bookCollection);

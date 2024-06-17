@@ -1,0 +1,55 @@
+@using System.Collections
+@using Database.DATA.BookScheme
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Database.Data.BookScheme.BookCollection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Dodawaj książki do kolekcji</h1>
+
+<table class="table table-striped table-light table-hover shadow rounded">
+    <thead class="table-dark">
+    <tr>
+        <th>#</th>
+        <th>
+            Nazwa kolekcji
+        </th>
+        <th>Zarządzanie</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td >
+            <a id="showTable">
+                <i class="bi bi-plus" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="plusSign"></i>
+            </a>
+        </td>
+        <td>
+                @item.Collections.CollectionName
+            </td> 
+            
+                <td>@item.Book.Title</td>
+    </tr>
+    <tr>
+                 <td>
+                <a asp-action="Edit" asp-route-id="@item.CollectionId"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Details" asp-route-id="@item.CollectionId"><i class="bi bi-clipboard"></i> Podgląd</a>
+                <a asp-action="Delete" asp-route-id="@item.CollectionId"><i class="bi bi-trash"></i> Usuń</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="6" class="text-center">
+            <a asp-action="Create" class="btn btn-outline-primary">
+                Dodaj książkę do kolekcji
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+@* ToDo: Dodawanie do kolecji przeniesc do sekcji zarzadzanie ksiazkami. Stworzyc nowa tabele w bazie zbierajaca kolekcje do randoma *@

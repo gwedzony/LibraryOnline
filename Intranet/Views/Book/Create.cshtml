@@ -4,75 +4,72 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="row p-2">
+<div class="row p-2  mt-5">
     <div class="col-4">
-        <h1>Dodaj strone książki</h1>
+        <div class="bg-dark rounded p-2">
+            <h1 class="text-white">Dodaj książkę</h1>
 
-        <h4>Strona książki</h4>
+            <h4 class="text-white">Nowa książka</h4>
+        </div>
         <hr/>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+                <input asp-for="Title" class="form-control" id="title" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control" id="desc" rows="4"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ReadCount" class="control-label"></label>
-                <input asp-for="ReadCount" class="form-control" />
-                <span asp-validation-for="ReadCount" class="text-danger"></span>
+            <div class="form-group mb-2">
+                <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" id="image" onchange="changeImage()"/>
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="IdAuthor" class="control-label">Wybierz autora</label>
+                <select asp-for="IdAuthor" class="form-select" asp-items="ViewBag.IdAuthor" id="author"></select>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="IdGenre" class="control-label">Wybierz gatunek</label>
+                <select asp-for="IdGenre" class="form-select" asp-items="ViewBag.IdGenre" id="genre"></select>
             </div>
             <div class="form-group">
-                <label asp-for="IdAuthor" class="control-label"></label>
-                <select asp-for="IdAuthor" class ="form-control" asp-items="ViewBag.IdAuthor"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookId" class="control-label"></label>
-                <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="IdGenre" class="control-label"></label>
-                <select asp-for="IdGenre" class ="form-control" asp-items="ViewBag.IdGenre"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookNewsCardId" class="control-label"></label>
-                <input asp-for="BookNewsCardId" class="form-control" />
-                <span asp-validation-for="BookNewsCardId" class="text-danger"></span>
+                <label asp-for="IdBookType" class="control-label">Wybierz typ</label>
+                <select asp-for="IdBookType" class="form-select" asp-items="ViewBag.IdBookType" id="booktype"></select>
             </div>
             <div class="form-group mt-4">
-                <input type="submit" value="Dodaj" class="btn btn-primary"/>
+                <a asp-action="Index">
+                    <div class="btn btn-outline-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div>
+                </a>
+                <button type="submit" class="btn btn-outline-primary">Dodaj<span class="mx-2"></span><i class="bi bi-plus-circle-fill"></i> </button>
             </div>
         </form>
     </div>
-    <div class="col-8 d-flex flex-row">
+
+    <div class="col-8">
+        
         <div class="row">
-            <div class="col-6">
-
-                <div class="d-flex flex-column">
-
-                    <img src="#" class="w-25 align-self-center rounded-3" alt="okladka" id="okladka"/>
-
-                    <div class="mt-5 ms-5">
-                        <p class="ms-3">Rodzaj: </p>
-                        <p class="ms-3">Gatunek: </p>
-                    </div>
-
-                </div>
+            <div class="col-4">
+                <img src="#" style="height: 400px;width: 300px" class="align-self-center rounded-3" alt="okladka" id="okladka"/>
             </div>
-            <div class="col-6">
+
+            <div class="col-8">
                 <div class="d-flex flex-column">
 
-                    <h3>Imie autora</h3>
-                    <h1>Tyul ksiazki</h1>
-
-
-                    <p class="book-description-paragraph-mini mt-2">
+                    <p>Imie i nazwisko autora:</p> <span id="authorSpan" style="font-size: 36px;"></span>
+                    <p>Tytuł książki:</p> <span id="titleSpan" style="font-size: 36px;"></span>
+                    
+                    <div class="d-flex flex-row">
+                        <p style="min-width: 300px">Rodzaj: <span id="booktypeSpan" style="font-size: 36px;"></span></p>
+                        <p>Gatunek: <span id="genreSpan" style="font-size: 36px;"></span></p>
+                    </div>
+                    <hr/>
+                    <p>Opis: </p>
+                    <p class="book-description-paragraph-mini mt-2" id="descSpan">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis elementum nibh tellus molestie nunc non blandit massa. Proin sed libero enim sed faucibus turpis in eu mi. Metus vulputate eu scelerisque felis imperdiet. Facilisis gravida neque convallis a cras semper auctor. Commodo sed egestas egestas fringilla. Montes nascetur ridiculus mus mauris vitae ultricies. Sit amet venenatis urna cursus eget. Ut pharetra sit amet aliquam id. Nibh mauris cursus mattis molestie a. Fringilla est ullamcorper eget nulla. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Duis at tellus at urna condimentum mattis. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Ullamcorper sit amet risus nullam eget felis. Dolor morbi non arcu risus. Et leo duis ut diam quam nulla. Tempor nec feugiat nisl pretium fusce id.
 
                         Ornare massa eget egestas purus viverra. Justo nec ultrices dui sapien eget mi proin. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Aliquam sem et tortor consequat id. Gravida in fermentum et sollicitudin ac orci. Sed velit dignissim sodales ut eu sem integer. Ornare quam viverra orci sagittis eu volutpat odio facilisis. Lacus viverra vitae congue eu consequat ac felis donec et. Luctus venenatis lectus magna fringilla. Senectus et netus et malesuada fames. A lacus vestibulum sed arcu non. Sed velit dignissim sodales ut eu sem integer vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Habitant morbi tristique senectus et netus et malesuada.
@@ -91,23 +88,43 @@
 
     </div>
 </div>
-<div>
-    <a asp-action="Index">Lista stron</a>
-</div>
 
 
 <script>
+
 let imageSource = document.getElementById("okladka");
 imageSource.setAttribute("src","/img/okladki/okladka.jpg");
 
-let coverImageInput = document.getElementById("CoverImgInput");
+let image = document.getElementById("image");
+let title = document.getElementById("title");
+let desc = document.getElementById("desc");
+let author = document.getElementById("author");
+let genre = document.getElementById("genre");
+let booktype = document.getElementById("booktype");
+
+let imageImg = document.getElementById("okladka");
+let titleSpan = document.getElementById("titleSpan");
+let descSpan = document.getElementById("descSpan");
+let authorSpan = document.getElementById("authorSpan");
+let genreSpan = document.getElementById("genreSpan");
+let booktypeSpan = document.getElementById("booktypeSpan");
 
 function changeImage(){
-    
-if (coverImageInput.value.endsWith(".jpg") || coverImageInput.value.endsWith(".png")){
-    imageSource.setAttribute("src",coverImageInput.value);
+if (image.value.endsWith(".jpg") || image.value.endsWith(".png")){
+    imageSource.setAttribute("src",image.value);
+}
 }
 
-}
-
+    title.addEventListener('change',() => {titleSpan.innerHTML = title.value});
+    desc.addEventListener('change',() => {descSpan.innerHTML = desc.value});
+    //author.addEventListener('change',() => {authorSpan.innerHTML = author.selectedIndex.valueOf(innerHTML)});
+    genre.addEventListener('change',() => {genreSpan.innerHTML = genre.options[genre.selectedIndex].text});
+    booktype.addEventListener('change',() => {booktypeSpan.innerHTML = booktype.options[booktype.selectedIndex].text});
+   
+   
+ 
 </script>
+@* *@
+@* Folwark zwierzęcy *@
+@* Kultowa powieść Orwella w nowym tłumaczeniu i opatrzona odnalezioną po latach autorską przedmową! "Folwark zwierzęcy" to błyskotliwa satyra na deprawujący wpływ władzy. *@
+@* https://multiszop.pl/Photos/000072/folwark-zwierzecy.jpg *@

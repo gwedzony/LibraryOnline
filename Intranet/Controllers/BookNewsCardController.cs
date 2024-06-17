@@ -49,8 +49,9 @@ namespace Intranet.Controllers
         // GET: BookNewsCard/Create
         public IActionResult Create()
         {
+            ViewBag.SelectedBook = _context.Books.ToList();
             ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
-            ViewBag.NewestBook = new List<NewestBooksCardsPreview>();
+            ViewData["BookLink"] = new SelectList(_context.BookPages, "BookPageId", "BookPageId");
             return View();
         }
 
@@ -84,7 +85,7 @@ namespace Intranet.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Description", bookNewsCard.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title", bookNewsCard.BookId);
             return View(bookNewsCard);
         }
 

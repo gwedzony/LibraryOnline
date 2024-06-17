@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
-    <script src="js/Chart.bundle.min.js"></script>
 </head>
 <body>
 <header>
@@ -23,17 +22,11 @@
             <div class="sidebar">
                 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-light" style="width: 280px;" bis_skin_checked="1">
                     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="bi bi-laptop me-2 fs-2 text-black"></i>
+                        <i class="bi bi-house me-2 fs-2 text-black"></i>
                         <span class="fs-4 text-black">Intranet</span>
                     </a>
                     <hr class="text-black">
                     <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link active" aria-current="page">
-                                <i class="bi bi-house me-2 fs-2"></i>
-                                Home
-                            </a>
-                        </li>
                         <li>
                             <a asp-area="" asp-controller="HomeBook" asp-action="Index" class="nav-link text-black">
                                 <i class="bi bi-book me-2 fs-2"></i>
@@ -41,13 +34,13 @@
                             </a>
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
-                                    <a asp-area="" asp-controller="Book" asp-action="Index" class="nav-link " aria-current="page">
+                                    <a asp-area="" asp-controller="Book" asp-action="Index" class="nav-link" aria-current="page">
                                         <i class="bi bi-book-half me-2 fs-6"></i>
                                         Książki
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-area="" asp-controller="Author" asp-action="Index" class="nav-link " aria-current="page">
+                                    <a asp-area="" asp-controller="Author" asp-action="Index" class="nav-link" aria-current="page">
                                         <i class="bi bi-person-lines-fill me-2 fs-6"></i>
                                         Autorzy
                                     </a>
@@ -70,6 +63,12 @@
                                         Rodzaje
                                     </a>
                                 </li>
+                                <li>
+                                    <a asp-area="" asp-controller="BookCollection" asp-action="Index" class="nav-link" aria-current="page">
+                                        <i class="bi bi-boxes me-2 fs-6"></i>
+                                        Dodaj książki do kolekcji
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -79,7 +78,7 @@
                             </a>
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li>
-                                    <a href="#" class="nav-link" aria-current="page">
+                                    <a asp-area="" asp-controller="BookRandomCollection" asp-action="Index" class="nav-link" aria-current="page">
                                         <i class="bi bi-collection-fill me-2 fs-6"></i>
                                         Dodaj kartę kolekcji
                                     </a>

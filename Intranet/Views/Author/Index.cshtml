@@ -35,10 +35,12 @@
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
             <td>
+                <span class="d-inline-block" style="max-width: 500px; overflow:hidden;text-overflow: ellipsis; white-space: nowrap"> 
                 @Html.DisplayFor(modelItem => item.Description)
+                </span>
             </td>
             <td>
-                <img src="@item.PhotoUrl" style="width: 50px;height: 50px;"></img>
+                <img src="@item.PhotoUrl" style="width: 80px;height: 80px;"/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AuthorId"><i class="bi bi-pencil-square"></i> Edytuj</a> 

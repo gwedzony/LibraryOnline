@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bookstore.Models;
 using Database.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bookstore.Controllers;
 
@@ -18,20 +19,38 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        /*ViewBag.NewestBooks = (from nb in _context.BookPreviewNewests
+       ViewBag.NewestBooks = (from nb in _context.BookNewsCards
             join b in _context.Books
                 on nb.BookId equals b.BookId
             select new NewestBooksCards
             {
-                Id = nb.NewestBookId,
+                Id = nb.BookNewsCardId,
                 BookUrl = nb.BookLink,
                 BookImage = nb.SmallCoverImg,
                 BookTitle = b.Title,
                 BookAuthor = $"{b.Author.Name} {b.Author.Surname}",
                 BookDescription = b.Description,
-                AddDateTime = b.AddDateTime
-            }).ToList();*/
-      
+                AddDateTime = nb.WhenCreated
+            }).ToList();
+       
+       ViewBag.BookCollections = _context.Collections.ToList();
+       
+       Random random = new Random();
+       
+       var randomCollectionNumber =  random.Next(1 ,_context.Collections.ToList().Count+1);
+     
+      var collection = _context.Collections
+           .Include(c => c.BookCollections)
+           .ThenInclude(bc => bc.Book)
+           .ThenInclude(b=>b.Author)
+           .FirstOrDefaultAsync(c => c.CollectionId == randomCollectionNumber);
+        
+       var booksInCollection = collection.Result.BookCollections.Select(bc => bc.Book).ToList();
+
+       ViewBag.BookPage = _context.BookPages.ToList();
+       ViewBag.BooksInCollection = booksInCollection;
+       ViewBag.CollectionName = collection.Result.CollectionName;
+       
         return View();
     }
 

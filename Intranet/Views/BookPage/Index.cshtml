@@ -4,13 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h3 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Strony książek</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-striped table-light table-hover shadow rounded">
+    <thead class="table-dark text-white">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.BigCoverImg)
@@ -22,7 +19,10 @@
                 @Html.DisplayNameFor(model => model.AudioUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book)
+                @Html.DisplayNameFor(model => model.LongDescription)
+            </th>
+            <th>
+                Tytuł książki
             </th>
             <th></th>
         </tr>
@@ -31,23 +31,33 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.BigCoverImg)
+                <a href="@Html.DisplayFor(modelItem => item.BigCoverImg)">Link do okładki</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PdfUrl)
+                <a href="@Html.DisplayFor(modelItem => item.PdfUrl)">Link do książki</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AudioUrl)
+                <a href="@Html.DisplayFor(modelItem => item.AudioUrl)">Link do AudioBooka</a>
+            </td>
+            <td style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis;max-width: 300px;">
+                @Html.DisplayFor(modelItem => item.LongDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Book.Description)
+                @Html.DisplayFor(modelItem => item.Book.Title)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookPageId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookPageId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookPageId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.BookPageId"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Details" asp-route-id="@item.BookPageId"><i class="bi bi-clipboard"></i> Podgląd</a>
+                <a asp-action="Delete" asp-route-id="@item.BookPageId"><i class="bi bi-trash"></i> Usuń</a>
             </td>
         </tr>
 }
-    </tbody>
+
+<tr>
+    <td colspan="6" class="text-center">
+        <a asp-action="Create" class="btn btn-outline-primary">
+            Dodaj nową kartę</a>
+    </td>
+</tr>
+</tbody>
 </table>

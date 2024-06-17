@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Database.Migrations
 {
     /// <inheritdoc />
-    public partial class create_init : Migration
+    public partial class m3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -82,6 +82,38 @@ namespace Database.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "RandomCollections",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RandomCollections", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "AuthorPages",
+                columns: table => new
+                {
+                    AuthorPageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AuthorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AuthorPages", x => x.AuthorPageId);
+                    table.ForeignKey(
+                        name: "FK_AuthorPages_Authors_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "Authors",
+                        principalColumn: "AuthorId");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
@@ -91,11 +123,13 @@ namespace Database.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ReadCount = table.Column<long>(type: "bigint", nullable: false),
-                    AddDateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    image = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ReadCount = table.Column<long>(type: "bigint", nullable: true),
                     IdAuthor = table.Column<int>(type: "int", nullable: false),
                     IdBookType = table.Column<int>(type: "int", nullable: false),
-                    IdGenre = table.Column<int>(type: "int", nullable: false)
+                    IdGenre = table.Column<int>(type: "int", nullable: false),
+                    BookNewsCardId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,24 +159,48 @@ namespace Database.Migrations
                 name: "BookCollections",
                 columns: table => new
                 {
-                    BooksBookId = table.Column<int>(type: "int", nullable: false),
-                    CollectionsCollectionId = table.Column<int>(type: "int", nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    CollectionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookCollections", x => new { x.BooksBookId, x.CollectionsCollectionId });
+                    table.PrimaryKey("PK_BookCollections", x => new { x.BookId, x.CollectionId });
                     table.ForeignKey(
-                        name: "FK_BookCollections_Books_BooksBookId",
-                        column: x => x.BooksBookId,
+                        name: "FK_BookCollections_Books_BookId",
+                        column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookCollections_Collections_CollectionsCollectionId",
-                        column: x => x.CollectionsCollectionId,
+                        name: "FK_BookCollections_Collections_CollectionId",
+                        column: x => x.CollectionId,
                         principalTable: "Collections",
                         principalColumn: "CollectionId",
                         onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "BookNewsCards",
+                columns: table => new
+                {
+                    BookNewsCardId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    SmallCoverImg = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    BookLink = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    WhenCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookNewsCards", x => x.BookNewsCardId);
+                    table.ForeignKey(
+                        name: "FK_BookNewsCards_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "BookId");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -155,6 +213,10 @@ namespace Database.Migrations
                     BigCoverImg = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     PdfUrl = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    AudioUrl = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LongDescription = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     BookId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -169,115 +231,27 @@ namespace Database.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "BookPreviewCollections",
-                columns: table => new
-                {
-                    PreviewId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SmallCoverImg = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    PdfUrl = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    AudioUrl = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    BookId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookPreviewCollections", x => x.PreviewId);
-                    table.ForeignKey(
-                        name: "FK_BookPreviewCollections_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "BookPreviewNewests",
-                columns: table => new
-                {
-                    NewestBookId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SmallCoverImg = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    BookLink = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    BookId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookPreviewNewests", x => x.NewestBookId);
-                    table.ForeignKey(
-                        name: "FK_BookPreviewNewests_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "ListenAudioBookPages",
-                columns: table => new
-                {
-                    AudioPageId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    AudioUrl = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    BookId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ListenAudioBookPages", x => x.AudioPageId);
-                    table.ForeignKey(
-                        name: "FK_ListenAudioBookPages_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "ReadOnlineBooks",
-                columns: table => new
-                {
-                    ReadOnlineId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    BookId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ReadOnlineBooks", x => x.ReadOnlineId);
-                    table.ForeignKey(
-                        name: "FK_ReadOnlineBooks_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
+            migrationBuilder.CreateIndex(
+                name: "IX_AuthorPages_AuthorId",
+                table: "AuthorPages",
+                column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookCollections_CollectionsCollectionId",
+                name: "IX_BookCollections_CollectionId",
                 table: "BookCollections",
-                column: "CollectionsCollectionId");
+                column: "CollectionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookNewsCards_BookId",
+                table: "BookNewsCards",
+                column: "BookId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookPages_BookId",
                 table: "BookPages",
                 column: "BookId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookPreviewCollections_BookId",
-                table: "BookPreviewCollections",
-                column: "BookId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookPreviewNewests_BookId",
-                table: "BookPreviewNewests",
-                column: "BookId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_IdAuthor",
@@ -293,40 +267,25 @@ namespace Database.Migrations
                 name: "IX_Books_IdGenre",
                 table: "Books",
                 column: "IdGenre");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ListenAudioBookPages_BookId",
-                table: "ListenAudioBookPages",
-                column: "BookId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ReadOnlineBooks_BookId",
-                table: "ReadOnlineBooks",
-                column: "BookId",
-                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AuthorPages");
+
+            migrationBuilder.DropTable(
                 name: "BookCollections");
+
+            migrationBuilder.DropTable(
+                name: "BookNewsCards");
 
             migrationBuilder.DropTable(
                 name: "BookPages");
 
             migrationBuilder.DropTable(
-                name: "BookPreviewCollections");
-
-            migrationBuilder.DropTable(
-                name: "BookPreviewNewests");
-
-            migrationBuilder.DropTable(
-                name: "ListenAudioBookPages");
-
-            migrationBuilder.DropTable(
-                name: "ReadOnlineBooks");
+                name: "RandomCollections");
 
             migrationBuilder.DropTable(
                 name: "Collections");

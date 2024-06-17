@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Bookstore.bundle.scp.css"
     },
     {
+      "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/audiobook.mp3",
+      "PackagePath": "staticwebassets/audiobook.mp3"
+    },
+    {
       "Id": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

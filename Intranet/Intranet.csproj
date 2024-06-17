@@ -94,10 +94,33 @@
       <UpToDateCheckInput Remove="Views\Book\Details.cshtml" />
       <UpToDateCheckInput Remove="Views\Book\Edit.cshtml" />
       <UpToDateCheckInput Remove="Views\Book\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Book\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <None Include="wwwroot\img\library.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\temp\BookPage\Create.cshtml" />
+      <AdditionalFiles Include="Views\temp\BookPage\Delete.cshtml" />
+      <AdditionalFiles Include="Views\temp\BookPage\Details.cshtml" />
+      <AdditionalFiles Include="Views\temp\BookPage\Edit.cshtml" />
+      <AdditionalFiles Include="Views\temp\BookPage\Index.cshtml" />
+      <AdditionalFiles Include="Views\temp\Book\Create.cshtml" />
+      <AdditionalFiles Include="Views\temp\Book\Delete.cshtml" />
+      <AdditionalFiles Include="Views\temp\Book\Details.cshtml" />
+      <AdditionalFiles Include="Views\temp\Book\Edit.cshtml" />
+      <AdditionalFiles Include="Views\temp\Book\Index.cshtml" />
     </ItemGroup>
 
 </Project>

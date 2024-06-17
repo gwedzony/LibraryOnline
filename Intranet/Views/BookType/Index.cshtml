@@ -6,20 +6,20 @@
 
 <h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Lista rodzajów książek</h1>
 
-<div class="modal fade" id="addGenreModal" tabindex="-1" aria-labelledby="addGenreModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" asp-controller="Genre" asp-action="Create">
+            <form method="post" asp-controller="BookType" asp-action="Create">
                 <div class="modal-header bg-dark">
-                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Nowy gatunek</h1>
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Utwórz nowy typ</h1>
                     <button type="button" class="btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label>Nazwa dla nowego gatunku:</label>
-                        <input type="text" class="form-control" required="required" name="Name" placeholder="np. Thriller"/>
+                        <label>Nazwa dla nowego typu:</label>
+                        <input type="text" class="form-control" required="required" name="BookTypeName" placeholder="np. Liryka"/>
                     </div>
 
                 </div>
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="editGenreModal" tabindex="-1" aria-labelledby="editGenreModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="editGenreModal" tabindex="-1" aria-labelledby="editGenreModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form method="post" asp-controller="Genre" asp-action="Edit" id="editGenreForm">
@@ -63,7 +63,7 @@
         </div>
 
     </div>
-</div>
+</div>*@
 
 <table class="table table-striped table-light table-hover shadow rounded">
     <thead class="table-dark">
@@ -81,14 +81,14 @@
                 @Html.DisplayFor(modelItem => item.BookTypeName)
             </td>
             <td class="text-center">
-                <a data-bs-toggle="modal" data-bs-target="#editGenreModal" data-genre-id="@item.BookTypeId" data-genre-name="item.BookTypeName" class="mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Edit" asp-route-id="@item.BookTypeId" data-genre-id="@item.BookTypeId" data-genre-name="item.BookTypeName" class="mx-2 editGenreButton"><i class="bi bi-pencil-square"></i> Edytuj</a>
                 <a asp-action="Delete" asp-route-id="@item.BookTypeId" class="mx-2"><i class="bi bi-trash"></i> Usuń</a>
             </td>
         </tr>
 }
 <tr>
     <td colspan="2" class="text-center">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addGenreModal" class="btn btn-outline-primary">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-outline-primary">
             Utwórz nowy typ książki</a>
     </td>
 </tr>
@@ -98,24 +98,23 @@
 
  @*ToDO: Wielkosc tabelki / polozenie zarządzania *@
 <script>
-   
-    var editGenreModal = document.getElementById("editGenreModal");
-    var inputNameGenre = document.getElementById("inputNameGenre");
-    
-    var inputGenreId = document.getElementById("inputGenreId");
-    
-    let editGenreButton = document.getElementsByClassName("editGenreButton");    
-    
-    var editGenreForm = document.getElementById("editGenreForm");
-   
-    
-    for (let i = 0; i < editGenreButton.length; i++)
+
+    var editModal = document.getElementById("editModal");
+    var inputName = document.getElementById("inputName");
+    var inputId = document.getElementById("inputId");
+    let editButton = document.getElementsByClassName("editButton");
+    let editForm = document.getElementById("editForm");
+
+    for (let i = 0; i < editButton.length; i++)
     {
-        editGenreButton[i].addEventListener('click',()=>
+        editButton[i].addEventListener('click',()=>
         {
-          inputGenreId.value = editGenreButton[i].getAttribute("data-genre-id");      
-          inputNameGenre.value = editGenreButton[i].getAttribute("data-genre-name");   
+            inputId.setAttribute("value",editButton[i].getAttribute("data-item-id"));
+            inputName.setAttribute("value", editButton[i].getAttribute("data-item-name"));
+            editForm.setAttribute("asp-route-id",editButton[i].getAttribute("data-item-id"));
+
+
         });
     }
-        
+
 </script>

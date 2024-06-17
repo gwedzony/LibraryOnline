@@ -46,10 +46,11 @@ namespace Intranet.Controllers
         }
 
         // GET: Collections/Create
-        public IActionResult Create()
+        /*public IActionResult Create()
         {
             return View();
         }
+        */
 
         // POST: Collections/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -93,13 +94,14 @@ namespace Intranet.Controllers
             }
             return View(collections);
         }
+    
 
         // POST: Collections/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CollectionId")] Collections collections)
+        public async Task<IActionResult> Edit(int id, [Bind("CollectionId,CollectionName")] Collections collections)
         {
             if (id != collections.CollectionId)
             {

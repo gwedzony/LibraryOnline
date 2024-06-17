@@ -18,6 +18,7 @@ public partial class DatabaseContext : DbContext
     public DbSet<BookNewsCard> BookNewsCards { get; set; }
     public DbSet<BookPage> BookPages { get; set; }
     public DbSet<AuthorPage> AuthorPages { get; set; }
+    public DbSet<BookRandomCollections> RandomCollections { get; set; }
     
  
     
@@ -49,24 +50,24 @@ public partial class DatabaseContext : DbContext
             .HasOne(bg => bg.Genre)
             .WithMany(bg => bg.Book);
         
-        modelBuilder.Entity<BookCollection>()
-            .HasKey(bc => new { bc.BookId, bc.CollectionId });
+        modelBuilder.Entity<Book>()
+            .HasOne(bnc => bnc.BookNewsCard)
+            .WithOne(bnc => bnc.Book)
+            .HasForeignKey<BookNewsCard>(b => b.BookId);
 
+        modelBuilder.Entity<BookCollection>().HasKey(bc => new { bc.BookId, bc.CollectionId });
+        
         modelBuilder.Entity<BookCollection>()
             .HasOne(bc => bc.Book)
             .WithMany(b => b.BookCollections)
             .HasForeignKey(bc => bc.BookId);
 
+        // Konfiguracja relacji Collection -> BookCollection
         modelBuilder.Entity<BookCollection>()
             .HasOne(bc => bc.Collections)
             .WithMany(c => c.BookCollections)
-            .HasForeignKey(bc => bc.CollectionId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(bc => bc.CollectionId);
 
-        modelBuilder.Entity<Book>()
-            .HasOne(bnc => bnc.BookNewsCard)
-            .WithOne(bnc => bnc.Book)
-            .HasForeignKey<BookNewsCard>(b => b.BookId);
     }
 
 

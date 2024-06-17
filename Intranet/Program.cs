@@ -1,4 +1,7 @@
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using Database.Context;
+using Microsoft.Extensions.WebEncoders;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +12,10 @@ builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddTransient<MySqlConnection>(_ =>
     new MySqlConnection(builder.Configuration.GetConnectionString("DatabaseContext")));
 
-
+builder.Services.Configure<WebEncoderOptions>(options =>
+{
+    options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.BasicLatin, UnicodeRanges.LatinExtendedA,UnicodeRanges.LatinExtendedB);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

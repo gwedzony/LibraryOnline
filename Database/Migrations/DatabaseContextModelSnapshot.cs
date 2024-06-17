@@ -46,10 +46,14 @@ namespace Database.Migrations
                     b.Property<int>("IdGenre")
                         .HasColumnType("int");
 
-                    b.Property<long>("ReadCount")
+                    b.Property<long?>("ReadCount")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("image")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -109,6 +113,19 @@ namespace Database.Migrations
                     b.ToTable("BookNewsCards");
                 });
 
+            modelBuilder.Entity("Database.DATA.CMS.BookRandomCollections", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RandomCollections");
+                });
+
             modelBuilder.Entity("Database.DATA.Library.AuthorPage", b =>
                 {
                     b.Property<int>("AuthorPageId")
@@ -143,6 +160,10 @@ namespace Database.Migrations
 
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
+
+                    b.Property<string>("LongDescription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PdfUrl")
                         .HasColumnType("longtext");
@@ -296,7 +317,7 @@ namespace Database.Migrations
                     b.HasOne("Database.DATA.BookScheme.Collections", "Collections")
                         .WithMany("BookCollections")
                         .HasForeignKey("CollectionId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
@@ -308,8 +329,7 @@ namespace Database.Migrations
                 {
                     b.Navigation("BookCollections");
 
-                    b.Navigation("BookNewsCard")
-                        .IsRequired();
+                    b.Navigation("BookNewsCard");
 
                     b.Navigation("BookPage");
                 });

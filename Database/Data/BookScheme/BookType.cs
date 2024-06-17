@@ -8,6 +8,7 @@ public class BookType
 {
     [Key]
     public int BookTypeId{ get; set; }
+    
     [Required(ErrorMessage = "Podanie nazwy typu jest wymagane")]
     [Display(Name = "Rodzaj książki")]
     public required string BookTypeName { get; set; }

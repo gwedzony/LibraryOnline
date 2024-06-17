@@ -1,0 +1,34 @@
+@model Database.Data.BookScheme.BookCollection
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Dodaj ksiązke do kolekcji</h1>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger">Tytuł książki</div>
+            <div class="d-flex me-3">
+                <div class="form-group mb-5">
+                    <label asp-for="BookId" class="control-label">Tytuł książki</label>
+                    <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId" multiple  style="min-height: 300px;"> </select>
+                    <input type="hidden" name="Book" value="@ViewBag.Book"/>
+                </div>
+          
+            <div class="form-group mb-5" style="min-height: 300px;">
+                <label asp-for="CollectionId" class="control-label">Nazwa kolekcji:</label>
+                <select asp-for="CollectionId" class="form-control" asp-items="ViewBag.CollectionId" multiple  style="min-height: 300px;"></select>
+            </div>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index">
+                    <div class="btn btn-outline-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div>
+                </a>
+                <button type="submit" class="btn btn-outline-primary">Dodaj<span class="mx-2"></span><i class="bi bi-plus-circle-fill"></i> </button>
+            </div>
+        </form>
+    </div>
+</div>

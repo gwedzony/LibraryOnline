@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JHUIbN0GxlAQo38NWXx5ZfJKEevAZJEPT/HTnAaRQu0=",
+  "Hash": "l7uUyg5RD4EsUkBA7k6LQgsR8v6tBHvww1SxqAHJnaY=",
   "Source": "Bookstore",
   "BasePath": "_content/Bookstore",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/obj/Debug/net8.0/scopedcss/projectbundle/Bookstore.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/audiobook.mp3",
+      "SourceId": "Bookstore",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/",
+      "BasePath": "_content/Bookstore",
+      "RelativePath": "audiobook.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audiobook.mp3"
     },
     {
       "Identity": "/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/wwwroot/css/site.css",

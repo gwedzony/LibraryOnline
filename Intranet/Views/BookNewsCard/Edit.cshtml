@@ -4,43 +4,41 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edycja</h1>
 
-<h4>BookNewsCard</h4>
+<h4>Karta nowości:</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="BookNewsCardId" />
-            <div class="form-group">
+            <div class="form-group mb-2" >
                 <label asp-for="SmallCoverImg" class="control-label"></label>
                 <input asp-for="SmallCoverImg" class="form-control" />
                 <span asp-validation-for="SmallCoverImg" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="BookLink" class="control-label"></label>
                 <input asp-for="BookLink" class="form-control" />
                 <span asp-validation-for="BookLink" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="WhenCreated" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="WhenCreated" class="control-label">Data dodania karty</label>
                 <input asp-for="WhenCreated" class="form-control" />
                 <span asp-validation-for="WhenCreated" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="BookId" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="BookId" class="control-label">Tytuł książki</label>
                 <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
                 <span asp-validation-for="BookId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group mb-3">
+                <a asp-action="Index">
+                    <div class="btn btn-outline-primary"><i class="bi bi-arrow-left mx-1"></i><span class="mx-2"></span>Powrót</div>
+                </a>
+                <button type="submit" class="btn btn-success">Edytuj<span class="mx-2"></span><i class="bi bi-save"></i> </button>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

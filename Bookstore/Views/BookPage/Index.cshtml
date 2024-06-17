@@ -1,4 +1,6 @@
-
+@using Database.DATA.BookScheme
+@using Microsoft.EntityFrameworkCore.Infrastructure
+@model Database.DATA.Library.BookPage
 @{
     ViewData["Title"] = "BookPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,39 +9,50 @@
 <div class="container-fluid">
     <div class="row m-5">
         <div class="col-4 d-flex flex-column">
-            <img src="img/okladka.jpg" class="w-75 align-self-center rounded-3" alt="okladka"/>
-            <div class="mt-5 ms-5">
-                
-                <p class="ms-3">Rodzaj: </p>
-                <p class="ms-3">Gatunek: </p>
-            </div>
-           
+            <img src="@Model.BigCoverImg" class="w-75 align-self-center rounded-3" alt="okladka"/>
+
+
         </div>
-        
+
         <div class="col-8 d-flex flex-column">
-            
-            <h3><a class="text-decoration-none shadow-sm m-2" asp-controller="AuthorPage" asp-action="Index">Imie autora</a></h3>
-            <h1>Tyul ksiazki</h1>
 
-            <div class="d-flex flex-row p-2 justify-content-end">
-                <div class="m-2"><button type="button" class="btn btn-outline-secondary btn-lg d-flex justify-content-evenly align-items-center"> <img src="img/audiobook.png" class="m-2" alt="audiobook icon"/>Posluchaj audiobook`a </button></div>
-                <div class="m-2"><button type="button" class="btn btn-outline-secondary btn-lg d-flex justify-content-evenly align-items-center"> <img src="img/file.png" class="m-2" alt="audiobook icon"/>Pobierz książkę w pdf </button></div>
-                <div class="m-2"><button type="button" class="btn btn-secondary btn-lg d-flex justify-content-evenly align-items-center"> <img src="img/readonline.png" class="m-2" alt="audiobook icon"/>Czytaj online </button></div>
+            <h3>
+                <a class="text-decoration-none shadow-sm m-2" asp-controller="AuthorPage" asp-action="Index">@Model.Book.Author.Name @Model.Book.Author.Surname</a>
+            </h3>
+            <h1 style="font-size: 200px; font-family:  Roboto,serif">@Model.Book.Title</h1>
+            <p class="ms-3">Rodzaj: @Model.Book.BookType.BookTypeName</p>
+            <p class="ms-3">Gatunek: @Model.Book.Genre.Name</p>
+
+            <div class="d-flex flex-row p-2">
+                <a type="button" class="btn btn-outline-danger d-block" style="min-width: 77px;" onclick="showDiv()">
+                    <h1>
+                        <i class="bi bi-play-btn-fill"></i>
+                    </h1>Audiobook
+                </a>
+                <div id="audioDiv" class="hidden mt-5">
+                    <audio controls>
+                        <source src="../@Model.AudioUrl" type="audio/mpeg">
+                    </audio>
+                </div>
+                <a type="button" class="btn btn-outline-secondary d-block">
+                    <h1>
+                        <i class="bi bi-cloud-arrow-down-fill" style="min-width: 77px;"></i>
+                    </h1>PDF
+                </a>
+
             </div>
-            
-            <p class="book-description-paragraph mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis elementum nibh tellus molestie nunc non blandit massa. Proin sed libero enim sed faucibus turpis in eu mi. Metus vulputate eu scelerisque felis imperdiet. Facilisis gravida neque convallis a cras semper auctor. Commodo sed egestas egestas fringilla. Montes nascetur ridiculus mus mauris vitae ultricies. Sit amet venenatis urna cursus eget. Ut pharetra sit amet aliquam id. Nibh mauris cursus mattis molestie a. Fringilla est ullamcorper eget nulla. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Duis at tellus at urna condimentum mattis. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Ullamcorper sit amet risus nullam eget felis. Dolor morbi non arcu risus. Et leo duis ut diam quam nulla. Tempor nec feugiat nisl pretium fusce id.
-                
-                Ornare massa eget egestas purus viverra. Justo nec ultrices dui sapien eget mi proin. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Aliquam sem et tortor consequat id. Gravida in fermentum et sollicitudin ac orci. Sed velit dignissim sodales ut eu sem integer. Ornare quam viverra orci sagittis eu volutpat odio facilisis. Lacus viverra vitae congue eu consequat ac felis donec et. Luctus venenatis lectus magna fringilla. Senectus et netus et malesuada fames. A lacus vestibulum sed arcu non. Sed velit dignissim sodales ut eu sem integer vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Habitant morbi tristique senectus et netus et malesuada.
-                
-                Massa ultricies mi quis hendrerit. Sapien eget mi proin sed libero enim. Nibh tellus molestie nunc non blandit massa enim nec. Non sodales neque sodales ut etiam sit amet nisl purus. Elit at imperdiet dui accumsan sit amet. Nulla facilisi morbi tempus iaculis urna id volutpat. Nunc non blandit massa enim nec dui. Pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies. Nisl nunc mi ipsum faucibus vitae aliquet nec. Varius sit amet mattis vulputate enim nulla aliquet. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Natoque penatibus et magnis dis. Ut lectus arcu bibendum at varius. Faucibus vitae aliquet nec ullamcorper sit. Egestas congue quisque egestas diam in.
-                
-                Pretium quam vulputate dignissim suspendisse in est. Venenatis cras sed felis eget velit aliquet sagittis. Ultricies mi quis hendrerit dolor magna eget est. Id cursus metus aliquam eleifend mi. Semper eget duis at tellus at urna condimentum mattis. Sed tempus urna et pharetra pharetra massa massa. Tellus elementum sagittis vitae et leo duis ut. Turpis in eu mi bibendum neque egestas. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Scelerisque varius morbi enim nunc.
-                
-                Nulla facilisi nullam vehicula ipsum a arcu cursus. Feugiat sed lectus vestibulum mattis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Ut tristique et egestas quis. Pharetra sit amet aliquam id diam maecenas ultricies. Diam donec adipiscing tristique risus nec feugiat. Tempus iaculis urna id volutpat lacus laoreet. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Purus semper eget duis at tellus at. Id cursus metus aliquam eleifend mi in nulla posuere. Elementum integer enim neque volutpat ac. In nibh mauris cursus mattis. Hac habitasse platea dictumst quisque sagittis purus. Nulla at volutpat diam ut venenatis tellus in. Pulvinar neque laoreet suspendisse interdum consectetur libero id. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Eget velit aliquet sagittis id consectetur purus. Erat imperdiet sed euismod nisi porta. Volutpat ac tincidunt vitae semper quis lectus.</p>
 
+            <p class="book-description-paragraph mt-2">@Model.LongDescription </p>
         </div>
-       
+
     </div>
-   
+
 </div>
 
+<script>
+    function showDiv() {
+        var div = document.getElementById('audioDiv');
+        div.classList.remove('hidden');
+        div.classList.add('showAudio');
+    }
+</script>

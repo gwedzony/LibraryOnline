@@ -1,0 +1,41 @@
+@model IEnumerable<Database.DATA.CMS.BookRandomCollections>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center intranet-headers rounded-3 bg-light shadow-lg mb-3">Dodaj kolekcje wyświetlane na stronie głownej</h1>
+
+<table class="table table-striped table-light table-hover shadow rounded">
+    <thead class="table-dark text-white">
+    <tr>
+        <th>Nazwa kolekcji</th>
+        <th>Zarzadzanie</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @foreach (var title in item.Collections)
+                {
+                      @: @title.CollectionName
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edytuj</a>
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-clipboard"></i> Podgląd</a>
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Usuń</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2" class="text-center">
+            <a asp-action="Create" class="btn btn-outline-primary">
+                Dodaj nową kartę
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>

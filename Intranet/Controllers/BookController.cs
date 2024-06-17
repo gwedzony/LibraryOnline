@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,13 @@ namespace Intranet.Controllers
         // GET: Book/Create
         public IActionResult Create()
         {
-            ViewData["IdAuthor"] = new SelectList(_context.Authors, "AuthorId", "Name");
+            ViewData["IdAuthor"] = new SelectList(from x in _context.Authors
+                select new
+                {
+                    ID = x.AuthorId,
+                    FullName = x.Name + " " + x.Surname
+                },
+                "ID", "FullName");
             ViewData["IdBookType"] = new SelectList(_context.BookTypes, "BookTypeId", "BookTypeName");
             ViewData["IdGenre"] = new SelectList(_context.Genres, "GenreId", "Name");
             return View();
@@ -61,7 +68,8 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,Description,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
+        public async Task<IActionResult> Create(
+            [Bind("BookId,Title,Description,image,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +77,28 @@ namespace Intranet.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAuthor"] = new SelectList(_context.Authors, "AuthorId", "Name", book.IdAuthor);
+            else
+            {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                    .Where(y=>y.Count>0)
+                    .ToList();
+
+                foreach (var error in errors)
+                {
+                    foreach (var er in error)
+                    {
+                        Debug.WriteLine(er.ErrorMessage);
+                    }
+                }
+            }
+
+            ViewData["IdAuthor"] = new SelectList(from x in _context.Authors
+                select new
+                {
+                    ID = x.AuthorId,
+                    FullName = x.Name + " " + x.Surname
+                },
+                "ID", "FullName", book.IdAuthor);
             ViewData["IdBookType"] = new SelectList(_context.BookTypes, "BookTypeId", "BookTypeName", book.IdBookType);
             ViewData["IdGenre"] = new SelectList(_context.Genres, "GenreId", "Name", book.IdGenre);
             return View(book);
@@ -88,7 +117,14 @@ namespace Intranet.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAuthor"] = new SelectList(_context.Authors, "AuthorId", "Name", book.IdAuthor);
+
+            ViewData["IdAuthor"] = new SelectList(from x in _context.Authors
+                select new
+                {
+                    ID = x.AuthorId,
+                    FullName = x.Name + " " + x.Surname
+                },
+                "ID", "FullName", book.IdAuthor);
             ViewData["IdBookType"] = new SelectList(_context.BookTypes, "BookTypeId", "BookTypeName", book.IdBookType);
             ViewData["IdGenre"] = new SelectList(_context.Genres, "GenreId", "Name", book.IdGenre);
             return View(book);
@@ -99,7 +135,8 @@ namespace Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Description,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("BookId,Title,Description,image,ReadCount,IdAuthor,IdBookType,IdGenre,BookNewsCardId")] Book book)
         {
             if (id != book.BookId)
             {
@@ -124,8 +161,24 @@ namespace Intranet.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                    .Where(y=>y.Count>0)
+                    .ToList();
+
+                foreach (var error in errors)
+                {
+                    foreach (var er in error)
+                    {
+                        Debug.WriteLine(er.ErrorMessage);
+                    }
+                }
+            }
+
             ViewData["IdAuthor"] = new SelectList(_context.Authors, "AuthorId", "Name", book.IdAuthor);
             ViewData["IdBookType"] = new SelectList(_context.BookTypes, "BookTypeId", "BookTypeName", book.IdBookType);
             ViewData["IdGenre"] = new SelectList(_context.Genres, "GenreId", "Name", book.IdGenre);

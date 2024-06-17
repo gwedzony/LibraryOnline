@@ -1,31 +1,49 @@
-@* @model IEnumerable<Database.DATA.CMS.BookPreviewCollection> *@
-<div class="d-flex flex-column ">
-    <h3 class="text-center mb-5"><img src="img/book.png" alt="blank" class="m-2 shadow-sm"/> Nazwa kolekcji</h3>
+@model IEnumerable<Database.DATA.BookScheme.Collections> 
+@{
+    var tabindex = 0;
+}
 
-    <div class="text-center d-flex justify-content-evenly">
-
-                <div class="card rounded shadow-sm" style="width: 18rem;">
-                    <a class="text-decoration-none shadow-sm m-2" asp-controller="BookPage" asp-action="Index">
-                        <img src="img/okladka.jpg" class="card-img-top rounded" alt="okladka ksiazki">
-                    </a>
-                    <div class="card-body">
-                        <div class="d-flex flex-row justify-content-start">
-                            <a class="icon-bg text-decoration-none shadow-sm m-2" href="#">
-                                <i class="bi bi-book m-3"></i>
-                            </a>
-                            <a class="icon-bg text-decoration-none shadow-sm m-2" href="#">
-                                <i class="bi bi-headphones m-3 "></i>
-                            </a>
-                        </div>
-                        <p class="card-text">Nazwisko i imie autora</p>
-                        <p class="card-text">Tytul ksiazki</p>
-                    </div>
-                </div>
-      
-
+<div class="d-flex flex-column justify-content-center shadow-lg bg-light rounded">
+   <div class="d-flex justify-content-evenly mt-5">
+        <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+          
+                <li class="nav-item" role="presentation ">
+              
+                    <button class="nav-link active mx-1" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@ViewBag.CollectionName</button>
+                
+                </li>
+     
+        </ul>
     </div>
-    <div class="mt-5 mb-5 align-self-end">
-        <a href="#" class="m-5">zobacz wszystkie kolekcje</a>
+    <h1 class="text-center" >KOLEKCJE</h1>
+    <div class="tab-content d-flex justify-content-evenly p-2 mb-5" id="pills-tabContent">
+        <div class="tab-pane fade show active text-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="d-flex ">
+                @foreach (var book in ViewBag.BooksInCollection)
+                {
+                    <div class="text-center d-flex justify-content-evenly">
+                        <div class="card rounded shadow-sm" style="width: 18rem;">
+                            <a class="text-decoration-none shadow-sm m-2" asp-controller="BookPage" asp-action="Index">
+                                <img src="@book.image" class="card-img-top rounded" alt="okladka ksiazki">
+                            </a>
+                            <div class="card-body">
+                                <div class="d-flex flex-row justify-content-start">
+                                    <a onclick="window.location.href='@Url.Action("Index","BookPage", new {id=@book.BookId})'" class="icon-bg text-decoration-none shadow-sm m-2">
+                                        <i class="bi bi-book m-3"></i>
+                                    </a>
+                                    <a class="icon-bg text-decoration-none shadow-sm m-2" href="#">
+                                        <i class="bi bi-headphones m-3 "></i>
+                                    </a>
+                                </div>
+                                <p class="card-text">@book.Author.Name @book.Author.Surname</p>
+                                <p class="card-text fs-3">@book.Title</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
     </div>
 
 </div>

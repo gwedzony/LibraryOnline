@@ -20,14 +20,16 @@ public class Book
     [Display(Name = "Krótki opis książki")]
     public required string Description{ get; set; }
     
-    public long ReadCount { get; set; }
+    [Required(ErrorMessage = "Musisz dodać okładkę")]
+    [Display(Name = "Okładka książki")]
+    public string image { get; set; }
+    public long? ReadCount { get; set; }
     
 
     [ForeignKey("Author")]
     public int IdAuthor { get; set; }
     public Author? Author { get; set; }
-    
-    
+  
     
     [ForeignKey("BookType")]
     public int IdBookType{ get; set; }
@@ -39,9 +41,9 @@ public class Book
     public Genre? Genre { get; set; }
 
     public int? BookNewsCardId { get; set; }
-    public BookNewsCard BookNewsCard { get; set; }
-    
-    public ICollection<BookCollection> BookCollections { get; set; }
+    public BookNewsCard? BookNewsCard { get; set; }
+
+    public ICollection<BookCollection> BookCollections { get; } = [];
     
     public BookPage? BookPage { get; set; }
    

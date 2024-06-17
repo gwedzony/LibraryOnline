@@ -49,6 +49,26 @@ h1, h2, h3{
 
 .newest-card-img {
   width: 200px;
-  height:243px;
+  max-height:290px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0;  max-width: 0;}
+  to { opacity: 1; max-width: 310px;}
+}
+
+.hidden {
+  opacity: 0;
+  display: none;
+  max-width: 0;
+  
+}
+
+.showAudio {
+  display: block;
+  opacity: 1;
+  max-width: 310px;
+  animation: fadeIn 2s ease-in-out;
+  transition: max-width 0.1s ease-in-out;
 }
 

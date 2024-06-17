@@ -17,63 +17,63 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Bookstore
 build_property.RootNamespace = Bookstore
-build_property.ProjectDir = C:\Users\Sklep1\RiderProjects\LibraryOnline\Bookstore\
+build_property.ProjectDir = /Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Sklep1\RiderProjects\LibraryOnline\Bookstore
+build_property.MSBuildProjectDirectory = /Users/grzesiek/RiderProjects/ProjektWWW/Bookstore
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/AuthorPage/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUGFnZVxJbmRleC5jc2h0bWw=
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/AuthorPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yUGFnZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/BookPage/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1BhZ2VcSW5kZXguY3NodG1s
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/BookPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va1BhZ2UvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/AuthorPageShared/AllAuthorBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEF1dGhvclBhZ2VTaGFyZWRcQWxsQXV0aG9yQm9va3MuY3NodG1s
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/AuthorPageShared/AllAuthorBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0F1dGhvclBhZ2VTaGFyZWQvQWxsQXV0aG9yQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/MostReadBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vc3RSZWFkQm9va3MuY3NodG1s
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/MostReadBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL01vc3RSZWFkQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/NewTitles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5ld1RpdGxlcy5jc2h0bWw=
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/NewTitles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL05ld1RpdGxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/RandomCollectionBar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJhbmRvbUNvbGxlY3Rpb25CYXIuY3NodG1s
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/RandomCollectionBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL1JhbmRvbUNvbGxlY3Rpb25CYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sklep1/RiderProjects/LibraryOnline/Bookstore/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-kur9u9l5pf
+[/Users/grzesiek/RiderProjects/ProjektWWW/Bookstore/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zmj1kt0qd5
