@@ -1,9 +1,9 @@
 @model IEnumerable<NewestBooksCards>
 
-<div class="d-flex flex-column">
+<div class="d-flex flex-column"  draggable="true">
     <h3 class="text-center"><img src="img/blank.png" alt="blank" class="m-2 shadow-sm"/>Nowości</h3>
     
-    <div class="text-center d-flex justify-content-center">
+    <div class="text-center d-flex justify-content-center" >
       @if (Model != null)
       {
           foreach (var item in Model)
@@ -16,7 +16,7 @@
                           @item.BookAuthor
                       </h6>
                       <p class="fw-lighter fs-6" style="max-width:300px;max-height: 100px; overflow: hidden; text-overflow: ellipsis; white-space:break-spaces;text-wrap:pretty"> @item.BookDescription</p>
-                      <a asp-controller="BookPage" asp-action="Index" class="link-info text-decoration-none">Czytaj więcej</a>
+                      <a asp-controller="BookPage" asp-action="Index" asp-route-id="@item.BookUrl" class="link-info text-decoration-none">Czytaj więcej</a>
                   </div>
                   <div class=""> <img src="@item.BookImage" class="card-img newest-card-img" alt="okladka ksiazki"></div>
               </div>
@@ -26,9 +26,6 @@
       {
           <p>Nie ma ziom nic</p>
       }
-        
-      
-       
       
     </div>
    

@@ -12,17 +12,10 @@
 <header style="height: 100px" class="shadow">
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-light border-bottom box-shadow mb-3 h-100 ">
         <div class="container d-flex justify-content-center flex-row">
-            <a class="d-inline text-decoration-none text-center mx-2" asp-area="" asp-controller="Home" asp-action="Index">
-                Biblioteka
+            <a class="d-inline text-decoration-none text-center mx-2 " asp-area="" asp-controller="Home" asp-action="Index">
+                <h1> Biblioteka</h1>
             </a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Szukaj" aria-label="Search">
-                <button class="btn btn-outline-dark" type="submit">Szukaj</button>
-            </form>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
            </div>
     </nav>
 </header>
@@ -40,6 +33,30 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
+        ev.target.dataTransfer.setData("text2", ev.target.id)
+        ev.target.appendChild(document.getElementById(data));
+    }
+    
+    function move(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text2");
+        ev.appendChild(document.getElementById(data));
+    }
+
+</script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

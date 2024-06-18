@@ -51,7 +51,7 @@ namespace Intranet.Controllers
         {
             ViewBag.SelectedBook = _context.Books.ToList();
             ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
-            ViewData["BookLink"] = new SelectList(_context.BookPages, "BookPageId", "BookPageId");
+            ViewData["BookLink"] = new SelectList(_context.BookPages.Include(b=>b.Book), "BookPageId", "Book.Title");
             return View();
         }
 

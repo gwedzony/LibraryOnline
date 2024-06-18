@@ -1,12 +1,18 @@
-﻿
-@using Database.Data.BookScheme
-@using Database.DATA.BookScheme
+﻿@using Database.DATA.BookScheme
 @model IEnumerable<Database.DATA.CMS.BookNewsCard>
 @{
     ViewData["Title"] = "Home Page";
+    var news = await Html.PartialAsync("NewTitles", (IEnumerable<NewestBooksCards>)ViewBag.NewestBooks);
+    var collection = await Html.PartialAsync("RandomCollectionBar", (IEnumerable<Collections>)ViewBag.BookCollections);
+
 }
-<div class="m-5"> @await Html.PartialAsync("RandomCollectionBar",(IEnumerable<Collections>)ViewBag.BookCollections)</div>
-<div class="m-5">@await Html.PartialAsync("NewTitles",(IEnumerable<NewestBooksCards>)ViewBag.NewestBooks)</div>
+<div class="m-5" id="divpos1" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="move(event)">
+    @news
+</div>
+<div class="m-5" id="divpos2" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="move(event)">
+    @collection
+</div>
+
 
 
 

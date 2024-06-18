@@ -34,16 +34,22 @@ public class HomeController : Controller
             }).ToList();
        
        ViewBag.BookCollections = _context.Collections.ToList();
-       
+           
+           
        Random random = new Random();
-       
-       var randomCollectionNumber =  random.Next(1 ,_context.Collections.ToList().Count+1);
+       List<int> ids =  new List<int>();
+       foreach (var x in _context.Collections)
+       {
+           ids.Add(x.CollectionId);
+       }
+
+       int collectionId = ids.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
      
       var collection = _context.Collections
            .Include(c => c.BookCollections)
            .ThenInclude(bc => bc.Book)
            .ThenInclude(b=>b.Author)
-           .FirstOrDefaultAsync(c => c.CollectionId == randomCollectionNumber);
+           .FirstOrDefaultAsync(c => c.CollectionId == collectionId);
         
        var booksInCollection = collection.Result.BookCollections.Select(bc => bc.Book).ToList();
 

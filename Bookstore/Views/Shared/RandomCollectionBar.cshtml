@@ -3,7 +3,7 @@
     var tabindex = 0;
 }
 
-<div class="d-flex flex-column justify-content-center shadow-lg bg-light rounded">
+<div class="d-flex flex-column justify-content-center shadow-lg bg-light rounded" draggable="true">
    <div class="d-flex justify-content-evenly mt-5">
         <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
           
@@ -28,9 +28,17 @@
                             </a>
                             <div class="card-body">
                                 <div class="d-flex flex-row justify-content-start">
-                                    <a onclick="window.location.href='@Url.Action("Index","BookPage", new {id=@book.BookId})'" class="icon-bg text-decoration-none shadow-sm m-2">
-                                        <i class="bi bi-book m-3"></i>
-                                    </a>
+                                    @foreach (var bookpage in ViewBag.BookPage)
+                                    {
+                                        if (bookpage.BookId == book.BookId)
+                                        {
+                                            <a onclick="window.location.href='@Url.Action("Index", "BookPage", new { id = book.BookId })'" class="icon-bg text-decoration-none shadow-sm m-2">
+                                                <i class="bi bi-book m-3"></i>
+                                            </a>
+                                        }
+                                      
+                                    }
+                                  
                                     <a class="icon-bg text-decoration-none shadow-sm m-2" href="#">
                                         <i class="bi bi-headphones m-3 "></i>
                                     </a>
